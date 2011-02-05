@@ -5,3 +5,5 @@
 2011-02-04 14:10:53 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\xampp\htdocs\tecno_center\app\views\elements\second_navigation.ctp, line 10]
 2011-02-04 14:10:54 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\xampp\htdocs\tecno_center\app\views\elements\second_navigation.ctp, line 10]
 2011-02-04 14:10:54 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\xampp\htdocs\tecno_center\app\views\elements\second_navigation.ctp, line 10]
+2011-02-05 12:35:20 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 29: File 'C:\Users\Usuario\xampp\tmp\#sqld88_98_1.MYD' not found (Errcode: 13)</span> in [C:\Users\Usuario\xampp\htdocs\tecnocenter\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-02-05 12:35:20 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\Users\Usuario\xampp\htdocs\tecnocenter\cake\libs\model\datasources\dbo\dbo_mysql.php, line 127]

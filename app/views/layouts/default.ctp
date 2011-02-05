@@ -22,34 +22,96 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
+		<?php __('Tecno Center'); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('front');
+		echo $this->Html->script("https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js");
+		echo $this->Html->script("front.js");
 
 		echo $scripts_for_layout;
 	?>
 </head>
-<body>
+<?php 
+//Variables que llegan del controlador
+if(!isset($menuCategories)){
+  $menuCategories=array(
+      "0"=>array(
+        "Category"=>array(
+          "id"=>"1","nombre"=>"Portatiles"
+        )
+     ),
+    "1"=>array(
+    "Category"=>array(
+          "id"=>"1","nombre"=>"PC de escritorios"
+          )
+        ),
+    "2"=>array(
+        "Category"=>array(
+            "id"=>"1","nombre"=>"Memorias"
+          )
+        ),
+    "3"=>array(
+        "Category"=>array(
+          "id"=>"1","nombre"=>"Discos Duros")
+        ),
+    "4"=>array(
+        "Category"=>array(
+            "id"=>"1","nombre"=>"Impresoras"
+            )
+          ),
+    "5"=>array(
+        "Category"=>array(
+            "id"=>"1","nombre"=>"Cables"
+           )
+        ),
+    "6"=>array(
+        "Category"=>array(
+            "id"=>"1","nombre"=>"Routers"
+           )
+        ),
+    "7"=>array(
+        "Category"=>array(
+            "id"=>"1","nombre"=>"Teclados"
+           )
+        )
+  );
+}
+if(!isset($otherCategories)){
+  $otherCategories=array(
+    "0"=>array(
+        "Category"=>array(
+            "id"=>"1","nombre"=>"Mouse"
+          )
+       ),
+    "1"=>array(
+        "Category"=>array(
+            "id"=>"1","nombre"=>"Accesorios"
+           )
+       ),
+  );
+}
+?>
+<body id="home">
 	<div id="container">
 		<div id="header">
-			
+		  <?php echo $this->element("header");?>
+		  <?php echo $this->element("main_navigation");?>
+		   <div class="yellow"></div>
+       <div class="white"></div>   
 		</div>
-		
 		<div id="content">
+		  <?php echo $this->element("second_navigation", array("menuCategories"=>$menuCategories,"otherCategories"=>$otherCategories));?>
 			<?php echo $this->Session->flash(); ?>
-			<?php echo $content_for_layout; ?>
-
+			<?php echo $content_for_layout; ?>			
 		</div>
-		
 		<div id="footer">
-			
+		   <?php echo $this->element("footer");?>
 		</div>
 	</div>
-	
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
