@@ -34,4 +34,11 @@
  */
 class AppController extends Controller {
 	var $components=array("Acl","Session");
+	var $uses=array("Category");
+	
+	function beforeRender(){
+		$menuCategories=$this->Category->find("all",array("limit"=>8,"order"=>"order"));
+		$otherCategories=$this->Category->find("all",array("offset"=>8,"order"=>"order"));
+		$this->set(compact("menuCategories","otherCategories"));
+	}
 }
