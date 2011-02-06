@@ -2,10 +2,11 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
-	function init(){
+  
+	function init()
+	{
 		$aro =& $this->Acl->Aro;
 		$aco =& $this->Acl->Aco;
-
 
 		$firstAroId=$aro->id;
 		$roles=array("Super Administrator","Administrator", "Vendedor", "Web", "Clientes");
@@ -35,7 +36,10 @@ class UsersController extends AppController {
 		}
 		
 	}
-	function reset(){
+  
+  
+	function reset()
+	{
 		$this->User->query("TRUNCATE TABLE `fields_forms_users`");
 		$this->User->query("TRUNCATE TABLE `forms_users`");
 		$this->User->query("TRUNCATE TABLE `users`");
@@ -44,15 +48,22 @@ class UsersController extends AppController {
 		$aro =& $this->Acl->Aro;
 		$this->init();
 	}
+  
 	function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
-	function register(){
-		if (!empty($this->data)) {
+  
+	function register()
+	{
+	  
+		if (!empty($this->data)) 
+		{
+		  //debug($this->data); exit;
 			$this->User->create();
 			$this->data["User"]["role_id"]=4;// Is set as a Basic user for default
-			if ($this->User->save($this->data)) {
+		  if ($this->User->save($this->data)) 
+			{
 				$aro =& $this->Acl->Aro;
 				$newAro=array(
 					"alias"=>$this->data["User"]["username"],
@@ -63,7 +74,7 @@ class UsersController extends AppController {
 				$aro->create();
 				$aro->save($newAro);
 				$this->Session->setFlash(__('The user has been saved', true));
-				$this->redirect(array('action' => 'profile',$this->User->id));
+				$this->redirect(array('action' => 'view', $this->User->id));
 			} else {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
 			}
