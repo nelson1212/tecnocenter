@@ -168,7 +168,8 @@ class UsersController extends AppController {
 		$this->set(compact('roles'));
 	}
 
-	function admin_delete($id = null) {
+	function admin_delete($id = null) 
+	{
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for user', true));
 			$this->redirect(array('action'=>'index'));
@@ -179,6 +180,18 @@ class UsersController extends AppController {
 		}
 		$this->Session->setFlash(__('User was not deleted', true));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	//LOGIN USER
+	function login()
+	{
+		
+	}
+	
+	//LOGOUT USER
+	function logout() 
+	{
+	   $this->redirect($this->Auth->logout());    
 	}
 }
 ?>
