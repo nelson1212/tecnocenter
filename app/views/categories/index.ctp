@@ -2,9 +2,10 @@
 	<h2><?php __('Categories');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-	
-Warning: Invalid argument supplied for foreach() in C:\Users\Usuario\xampp\htdocs\tecnocenter\cake\console\templates\default\views\index.ctp on line 24
-		<th class="actions"><?php __('Actions');?></th>
+			<th><?php echo $this->Paginator->sort('id');?></th>
+			<th><?php echo $this->Paginator->sort('nombre');?></th>
+			<th><?php echo $this->Paginator->sort('order');?></th>
+			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -15,8 +16,9 @@ Warning: Invalid argument supplied for foreach() in C:\Users\Usuario\xampp\htdoc
 		}
 	?>
 	<tr<?php echo $class;?>>
-
-Warning: Invalid argument supplied for foreach() in C:\Users\Usuario\xampp\htdocs\tecnocenter\cake\console\templates\default\views\index.ctp on line 39
+		<td><?php echo $category['Category']['id']; ?>&nbsp;</td>
+		<td><?php echo $category['Category']['nombre']; ?>&nbsp;</td>
+		<td><?php echo $category['Category']['order']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $category['Category']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $category['Category']['id'])); ?>
