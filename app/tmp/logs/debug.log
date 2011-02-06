@@ -95,3 +95,6 @@
 2011-02-06 13:28:03 Debug: Notice (8): Trying to get property of non-object in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 40]
 2011-02-06 13:28:05 Debug: Notice (8): Undefined variable: thi in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 40]
 2011-02-06 13:28:05 Debug: Notice (8): Trying to get property of non-object in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 40]
+2011-02-06 14:11:13 Debug: Notice (8): Undefined index: prefix in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 10]
+2011-02-06 14:15:37 Debug: Notice (8): Undefined variable: categoria in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\views\categories\admin_index.ctp, line 18]
+2011-02-06 14:15:42 Debug: Notice (8): Undefined variable: categoria in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\views\categories\admin_index.ctp, line 18]

@@ -118,9 +118,9 @@ class CategoriesController extends AppController {
    * Ordena las categorias se une con el widget de sortable
 
     * */
-    foreach($this->data["Categoria"] as $id=>$posicion){
-    $this->Categoria->id=$id;
-    $this->Categoria->saveField("posicion",$posicion);
+    foreach($this->data["Category"] as $id=>$posicion){
+    $this->Category->id=$id;
+    $this->Category->saveField("order",$posicion);
     }
     
     echo "yes";

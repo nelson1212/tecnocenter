@@ -15,10 +15,10 @@
 			$class = ' class="altrow ui-state-default"';
 		}
 	?>
-	<tr<?php echo $class;?>>
+	<tr<?php echo $class;?> id="<?php echo $category['Category']['id'];?>">
 		<td><?php echo $category['Category']['id']; ?>&nbsp;</td>
 		<td><?php echo $category['Category']['nombre']; ?>&nbsp;</td>
-		<td><?php echo $category['Category']['order']; ?>&nbsp;</td>
+		<td class="order"><?php echo $category['Category']['order']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $category['Category']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $category['Category']['id'])); ?>
@@ -49,38 +49,3 @@
 		<li><?php echo $this->Html->link(__('New Product', true), array('controller' => 'products', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-	<script>
-	var sendData=function(order){
-		var data={};
-		for(i=0;i<order.length;i+=1){
-			data["data[Categoria]["+order[i]+"]"]=(i+1);
-		}
-		$.post("/cms/categorias/reOrder",
-				data,
-				function(response){
-					if(response=="yes"){
-						for(i=0;i<order.length;i+=1){
-							$("tr#"+order[i]).children(":first-child").text(i+1);
-						}
-					}
-				}
-		);
-		
-		}
-	$(function() {
-			$( "#sortable tbody" ).sortable({
-			revert: true,
-			items:"tr:not(.ui-state-disabled)",
-			update:function(event, ui){
-		
-			sendData($(this).sortable("toArray"));
-			
-			
-			}
-				
-		});
-
-		$( "#sortable tbody > tr" ).disableSelection();
-
-	});
-	</script>

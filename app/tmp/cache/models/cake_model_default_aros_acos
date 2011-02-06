@@ -1,10 +1,2 @@
-<<<<<<< HEAD
-1297017897
-=======
-<<<<<<< HEAD
-1297016141
-=======
-1297017788
->>>>>>> f18e1ba9e77d010a4e0b4a78eb8f455e39beea84
->>>>>>> 45cd15d56756cae48a499f49a0ffaa2c3e7e435a
+1297020415
 a:7:{s:2:"id";a:5:{s:4:"type";s:7:"integer";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:10;s:3:"key";s:7:"primary";}s:6:"aro_id";a:5:{s:4:"type";s:7:"integer";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:10;s:3:"key";s:5:"index";}s:6:"aco_id";a:4:{s:4:"type";s:7:"integer";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:10;}s:7:"_create";a:6:{s:4:"type";s:6:"string";s:4:"null";b:0;s:7:"default";s:1:"0";s:6:"length";i:2;s:7:"collate";s:17:"latin1_swedish_ci";s:7:"charset";s:6:"latin1";}s:5:"_read";a:6:{s:4:"type";s:6:"string";s:4:"null";b:0;s:7:"default";s:1:"0";s:6:"length";i:2;s:7:"collate";s:17:"latin1_swedish_ci";s:7:"charset";s:6:"latin1";}s:7:"_update";a:6:{s:4:"type";s:6:"string";s:4:"null";b:0;s:7:"default";s:1:"0";s:6:"length";i:2;s:7:"collate";s:17:"latin1_swedish_ci";s:7:"charset";s:6:"latin1";}s:7:"_delete";a:6:{s:4:"type";s:6:"string";s:4:"null";b:0;s:7:"default";s:1:"0";s:6:"length";i:2;s:7:"collate";s:17:"latin1_swedish_ci";s:7:"charset";s:6:"latin1";}}
