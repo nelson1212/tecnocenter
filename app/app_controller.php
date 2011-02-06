@@ -37,8 +37,9 @@ class AppController extends Controller {
 	var $components=array("Acl","Session", "Auth");	
 	function beforeFilter()
 	{
+		if($this->params["prefix"]=="admin") $this->layout="admin";
 		$this->Auth->loginAction = array('controller'=>'users','action'=>'login');
-		$this->Auth->allow('index');
+		$this->Auth->allow('*');
 		$this->Auth->redirectLogin = array('controller'=>'users','action'=>'index');
 
 	}
