@@ -38,8 +38,8 @@ class AppController extends Controller {
 	function beforeFilter()
 	{
 		$this->Auth->loginAction = array('controller'=>'users','action'=>'login');
-		$this->Auth->allow('view');
-		$this->Auth->redirectLogin = array('controller'=>'empleados','action'=>'index');
+		$this->Auth->allow('index');
+		$this->Auth->redirectLogin = array('controller'=>'users','action'=>'index');
 
 	}
 	function beforeRender(){
