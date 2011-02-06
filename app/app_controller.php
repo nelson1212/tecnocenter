@@ -33,12 +33,18 @@
  * @link http://book.cakephp.org/view/957/The-App-Controller
  */
 class AppController extends Controller {
-	var $components=array("Acl","Session", "Auth");
-	
+	var $uses=array("Category");	
+	var $components=array("Acl","Session", "Auth");	
 	function beforeFilter()
 	{
 		$this->Auth->loginAction = array('controller'=>'users','action'=>'login');
 		$this->Auth->allow('index');
 		$this->Auth->redirectLogin = array('controller'=>'users','action'=>'index');
+
+	}
+	function beforeRender(){
+		$menuCategories=$this->Category->find("all",array("limit"=>8,"order"=>"order"));
+		$otherCategories=$this->Category->find("all",array("offset"=>8,"order"=>"order"));
+		$this->set(compact("menuCategories","otherCategories"));
 	}
 }
