@@ -3,6 +3,12 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
   
+  
+    function beforeFilter()
+	{
+		$this->Auth->allow('add','view','index','delete','edit');
+	}
+	
 	function init()
 	{
 		$aro =& $this->Acl->Aro;

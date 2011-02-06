@@ -3,6 +3,12 @@ class ProductsController extends AppController {
 
 	var $name = 'Products';
 
+   function beforeFilter()
+	{
+		$this->Auth->allow('add','view','index','delete','edit');
+	}
+	
+	
 	function index() {
 		$this->Product->recursive = 0;
 		$this->set('products', $this->paginate());
