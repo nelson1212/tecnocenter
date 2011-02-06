@@ -91,3 +91,7 @@
 2011-02-06 12:41:45 Debug: Notice (1024): Please change the value of 'Security.salt' in app/config/core.php to a salt value specific to your application in [C:\Users\Usuario\xampp\htdocs\tecnocenter\cake\libs\debugger.php, line 684]
 2011-02-06 12:41:45 Debug: Notice (1024): Please change the value of 'Security.cipherSeed' in app/config/core.php to a numeric (digits only) seed value specific to your application in [C:\Users\Usuario\xampp\htdocs\tecnocenter\cake\libs\debugger.php, line 688]
 >>>>>>> d6a400f90452bcc620d3cce2864c96b8faae44ee
+2011-02-06 13:28:03 Debug: Notice (8): Undefined variable: thi in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 40]
+2011-02-06 13:28:03 Debug: Notice (8): Trying to get property of non-object in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 40]
+2011-02-06 13:28:05 Debug: Notice (8): Undefined variable: thi in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 40]
+2011-02-06 13:28:05 Debug: Notice (8): Trying to get property of non-object in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 40]

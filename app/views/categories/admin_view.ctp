@@ -1,8 +1,21 @@
 <div class="categories view">
 <h2><?php  __('Category');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-
-Warning: Invalid argument supplied for foreach() in C:\Users\Usuario\xampp\htdocs\tecnocenter\cake\console\templates\default\views\view.ctp on line 24
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $category['Category']['id']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nombre'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $category['Category']['nombre']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Order'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $category['Category']['order']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

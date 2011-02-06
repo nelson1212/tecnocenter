@@ -3,8 +3,8 @@
 	<fieldset>
  		<legend><?php __('Admin Add Category'); ?></legend>
 	<?php
-
-Warning: Invalid argument supplied for foreach() in C:\Users\Usuario\xampp\htdocs\tecnocenter\cake\console\templates\default\views\form.ctp on line 26
+		echo $this->Form->input('nombre');
+		echo $this->Form->input('order');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
