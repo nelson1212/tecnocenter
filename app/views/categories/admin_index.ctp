@@ -1,7 +1,7 @@
 <div class="categories index">
 	<h2><?php __('Categories');?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
+	<table cellpadding="0" cellspacing="0" id="sortable">
+	<tr class='ui-state-disabled'>	
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('nombre');?></th>
 			<th><?php echo $this->Paginator->sort('order');?></th>
@@ -10,9 +10,9 @@
 	<?php
 	$i = 0;
 	foreach ($categories as $category):
-		$class = null;
+			$class =  ' class="ui-state-default "';
 		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
+			$class = ' class="altrow ui-state-default"';
 		}
 	?>
 	<tr<?php echo $class;?>>
@@ -49,3 +49,38 @@
 		<li><?php echo $this->Html->link(__('New Product', true), array('controller' => 'products', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+	<script>
+	var sendData=function(order){
+		var data={};
+		for(i=0;i<order.length;i+=1){
+			data["data[Categoria]["+order[i]+"]"]=(i+1);
+		}
+		$.post("/cms/categorias/reOrder",
+				data,
+				function(response){
+					if(response=="yes"){
+						for(i=0;i<order.length;i+=1){
+							$("tr#"+order[i]).children(":first-child").text(i+1);
+						}
+					}
+				}
+		);
+		
+		}
+	$(function() {
+			$( "#sortable tbody" ).sortable({
+			revert: true,
+			items:"tr:not(.ui-state-disabled)",
+			update:function(event, ui){
+		
+			sendData($(this).sortable("toArray"));
+			
+			
+			}
+				
+		});
+
+		$( "#sortable tbody > tr" ).disableSelection();
+
+	});
+	</script>
