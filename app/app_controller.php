@@ -33,5 +33,12 @@
  * @link http://book.cakephp.org/view/957/The-App-Controller
  */
 class AppController extends Controller {
-	var $components=array("Acl","Session");
+	var $components=array("Acl","Session", "Auth");
+	
+	function beforeFilter()
+	{
+		$this->Auth->loginAction = array('controller'=>'users','action'=>'login');
+		$this->Auth->allow('view');
+		$this->Auth->redirectLogin = array('controller'=>'empleados','action'=>'index');
+	}
 }
