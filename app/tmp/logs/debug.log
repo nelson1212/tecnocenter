@@ -95,6 +95,7 @@
 2011-02-06 13:28:03 Debug: Notice (8): Trying to get property of non-object in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 40]
 2011-02-06 13:28:05 Debug: Notice (8): Undefined variable: thi in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 40]
 2011-02-06 13:28:05 Debug: Notice (8): Trying to get property of non-object in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 40]
+<<<<<<< HEAD
 2011-02-06 20:05:15 Debug: Notice (8): Undefined variable: user in [E:\xampp\htdocs\tecnocenter\app\views\users\user_reports.ctp, line 3]
 2011-02-06 20:05:19 Debug: Notice (8): Undefined variable: user in [E:\xampp\htdocs\tecnocenter\app\views\users\user_reports.ctp, line 3]
 2011-02-06 20:06:25 Debug: Notice (8): Undefined index: user in [E:\xampp\htdocs\tecnocenter\app\views\users\user_reports.ctp, line 3]
@@ -110,3 +111,9 @@
 2011-02-06 22:24:27 Debug: Notice (8): Undefined index: User in [E:\xampp\htdocs\tecnocenter\app\views\users\user_reports.ctp, line 3]
 2011-02-06 22:29:25 Debug: Notice (8): Undefined offset: 2 in [E:\xampp\htdocs\tecnocenter\app\views\users\user_reports.ctp, line 5]
 2011-02-06 22:29:50 Debug: Notice (8): Undefined offset: 2 in [E:\xampp\htdocs\tecnocenter\app\views\users\user_reports.ctp, line 4]
+=======
+2011-02-06 14:11:13 Debug: Notice (8): Undefined index: prefix in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\app_controller.php, line 10]
+2011-02-06 14:15:37 Debug: Notice (8): Undefined variable: categoria in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\views\categories\admin_index.ctp, line 18]
+2011-02-06 14:15:42 Debug: Notice (8): Undefined variable: categoria in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\views\categories\admin_index.ctp, line 18]
+>>>>>>> 6901cd7996fa194d28d4b8712ecf32616f803bd6
+2011-02-07 01:10:18 Debug: Notice (8): Undefined variable: array in [E:\xampp\htdocs\tecnocenter\app\controllers\users_controller.php, line 222]

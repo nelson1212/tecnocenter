@@ -1,7 +1,7 @@
 <div class="categories index">
 	<h2><?php __('Categories');?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
+	<table cellpadding="0" cellspacing="0" id="sortable">
+	<tr class='ui-state-disabled'>	
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('nombre');?></th>
 			<th><?php echo $this->Paginator->sort('order');?></th>
@@ -10,15 +10,15 @@
 	<?php
 	$i = 0;
 	foreach ($categories as $category):
-		$class = null;
+			$class =  ' class="ui-state-default "';
 		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
+			$class = ' class="altrow ui-state-default"';
 		}
 	?>
-	<tr<?php echo $class;?>>
+	<tr<?php echo $class;?> id="<?php echo $category['Category']['id'];?>">
 		<td><?php echo $category['Category']['id']; ?>&nbsp;</td>
 		<td><?php echo $category['Category']['nombre']; ?>&nbsp;</td>
-		<td><?php echo $category['Category']['order']; ?>&nbsp;</td>
+		<td class="order"><?php echo $category['Category']['order']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $category['Category']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $category['Category']['id'])); ?>

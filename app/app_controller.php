@@ -7,7 +7,7 @@ class AppController extends Controller {
 	
 	function beforeFilter()
 	{
-		if($this->params["prefix"]=="admin") $this->layout="admin";
+		if(isset($this->params["prefix"])&&$this->params["prefix"]=="admin") $this->layout="admin";
 		$this->Auth->loginAction = array('controller'=>'users','action'=>'login');
 		$this->Auth->allow('*');
 		$this->Auth->redirectLogin = array('controller'=>'users','action'=>'index');
