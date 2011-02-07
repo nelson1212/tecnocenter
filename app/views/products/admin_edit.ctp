@@ -25,9 +25,7 @@
 		echo $this->Form->input('valor_venta');
 		echo $this->Form->input('estado_prod');
 		echo $this->Form->input('rotacion');
-		echo $this->Form->input('nit_proveedor');
 		echo $this->Form->input('tiempo_reposicion');
-		echo $this->Form->input('control_invent');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

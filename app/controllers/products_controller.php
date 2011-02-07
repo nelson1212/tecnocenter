@@ -5,7 +5,8 @@ class ProductsController extends AppController {
 
    function beforeFilter()
 	{
-		$this->Auth->allow('add','view','index','delete','edit');
+		parent::beforeFilter();
+		$this->Auth->allow('add','view','index','delete','edit','admin_index');
 	}
 	
 	
@@ -74,7 +75,12 @@ class ProductsController extends AppController {
 		$this->Product->recursive = 0;
 		$this->set('products', $this->paginate());
 	}
-
+	function admin_activar($id = null){
+		
+	}
+	function admin_desactivar($id = null){
+		
+	}
 	function admin_view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid product', true));
