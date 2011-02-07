@@ -6,7 +6,7 @@ class UsersController extends AppController {
   
     function beforeFilter()
 	{
-		$this->Auth->allow('add','view','index','delete','edit');
+		$this->Auth->allow('add','view','index','delete','edit','userReports', 'selectReport');
 	}
 	
 	function init()
@@ -198,6 +198,29 @@ class UsersController extends AppController {
 	function logout() 
 	{
 	   $this->redirect($this->Auth->logout());    
+	}
+	
+	//Configurar el reporte
+	function selectReport()
+	{
+		$roles=$this->User->Role->find('list');
+		$this->set(compact('roles'));
+	}
+
+	//Reporte por tipos de usuario
+	function userReports()
+	{
+		$this->User->recursive = 0;
+		$rol = $this->data['User']['role_id'];	
+		foreach($this->data['User'] as $indice =>$valor)
+		{
+			if($valor==1)
+			{
+				$array[] = $indice;
+			}
+		}
+		$reporte = $this->User->find('all', array('fields'=>$array,'conditions'=>array('User.role_id'=>$rol)));
+		$this->set(compact('reporte'));
 	}
 }
 ?>
