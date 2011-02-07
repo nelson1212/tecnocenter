@@ -15,8 +15,8 @@ class User extends AppModel {
 		),
 		'primer_nombre' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'rule' => array('notempty'),'message' => 'Debes ingresar tu primer nombre'
+				
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -25,8 +25,8 @@ class User extends AppModel {
 		),
 		'primer_apellido' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'rule' => array('notempty'), 'message' => 'Debes ingresar tu primer apellido'
+				
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -35,7 +35,7 @@ class User extends AppModel {
 		),
 		'email' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule' => array('notempty'),'message' => 'Debes ingresar un Email valido'
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -43,8 +43,7 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'email' => array(
-				'rule' => array('email'),
-				//'message' => 'Your custom message here',
+				'rule' => array('email'),'message' => 'Debes ingresar un Email valido'
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -53,8 +52,8 @@ class User extends AppModel {
 		),
 		'telefono' => array(
 			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'rule' => array('numeric'),'message' => 'Debes ingresar un numero de telefono valido'
+				
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -63,8 +62,7 @@ class User extends AppModel {
 		),
 		'telefono_adicional' => array(
 			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'rule' => array('numeric'),'message' => 'Debes ingresar un numero de telefono adicional valido'
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -73,8 +71,8 @@ class User extends AppModel {
 		),
 		'celular' => array(
 			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'rule' => array('numeric'),'message' => 'Debes ingresar un numero celular valido'
+			
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -83,8 +81,8 @@ class User extends AppModel {
 		),
 		'celular_adicional' => array(
 			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'rule' => array('numeric'),'message' => 'Debes ingresar un numero celular adicional valido'
+	
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -93,8 +91,8 @@ class User extends AppModel {
 		),
 		'username' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'rule' => array('notempty'),'message' => 'Debes ingresar un nombre de usuario'
+			
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -103,8 +101,8 @@ class User extends AppModel {
 		),
 		'password' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'rule' => array('notempty'),'message' => 'Debes ingresar una contraseña'
+				
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

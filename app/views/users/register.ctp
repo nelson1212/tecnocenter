@@ -24,8 +24,8 @@
     echo $this->Form->input('celular', array('label'=>'Celular'));      
     echo $this->Form->input('celular_adicional', array('label'=>'Celular adicional'));  
     echo $this->Form->input('foto', array('label'=>'Foto','type'=>'file'));  
-    echo $this->Form->input('username', array('label'=>'Username'));  
-    echo $this->Form->input('password', array('label'=>'Password'));  
+    echo $this->Form->input('username', array('label'=>'Nombre de usuario'));  
+    echo $this->Form->input('password', array('label'=>'Contraseña'));  
     
   ?>
   </fieldset>

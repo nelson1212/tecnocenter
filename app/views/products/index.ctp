@@ -24,9 +24,7 @@
 			<th><?php echo $this->Paginator->sort('valor_venta');?></th>
 			<th><?php echo $this->Paginator->sort('estado_prod');?></th>
 			<th><?php echo $this->Paginator->sort('rotacion');?></th>
-			<th><?php echo $this->Paginator->sort('nit_proveedor');?></th>
 			<th><?php echo $this->Paginator->sort('tiempo_reposicion');?></th>
-			<th><?php echo $this->Paginator->sort('control_invent');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('updated');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -66,9 +64,7 @@
 		<td><?php echo $product['Product']['valor_venta']; ?>&nbsp;</td>
 		<td><?php echo $product['Product']['estado_prod']; ?>&nbsp;</td>
 		<td><?php echo $product['Product']['rotacion']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['nit_proveedor']; ?>&nbsp;</td>
 		<td><?php echo $product['Product']['tiempo_reposicion']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['control_invent']; ?>&nbsp;</td>
 		<td><?php echo $product['Product']['created']; ?>&nbsp;</td>
 		<td><?php echo $product['Product']['updated']; ?>&nbsp;</td>
 		<td class="actions">

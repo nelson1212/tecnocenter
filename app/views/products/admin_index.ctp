@@ -7,28 +7,9 @@
 			<th><?php echo $this->Paginator->sort('manufacturer_id');?></th>
 			<th><?php echo $this->Paginator->sort('nombre');?></th>
 			<th><?php echo $this->Paginator->sort('codigo');?></th>
-			<th><?php echo $this->Paginator->sort('cod_barras');?></th>
-			<th><?php echo $this->Paginator->sort('clasificacion');?></th>
-			<th><?php echo $this->Paginator->sort('promocionar');?></th>
-			<th><?php echo $this->Paginator->sort('destacar');?></th>
-			<th><?php echo $this->Paginator->sort('ficha_producto');?></th>
-			<th><?php echo $this->Paginator->sort('image_producto');?></th>
-			<th><?php echo $this->Paginator->sort('inventario');?></th>
-			<th><?php echo $this->Paginator->sort('stock_minimo');?></th>
-			<th><?php echo $this->Paginator->sort('stock_maximo');?></th>
-			<th><?php echo $this->Paginator->sort('costo');?></th>
-			<th><?php echo $this->Paginator->sort('costo_promedio');?></th>
-			<th><?php echo $this->Paginator->sort('tarifa_iva');?></th>
-			<th><?php echo $this->Paginator->sort('valor_iva');?></th>
-			<th><?php echo $this->Paginator->sort('porc_utilidad');?></th>
-			<th><?php echo $this->Paginator->sort('valor_venta');?></th>
-			<th><?php echo $this->Paginator->sort('estado_prod');?></th>
-			<th><?php echo $this->Paginator->sort('rotacion');?></th>
-			<th><?php echo $this->Paginator->sort('nit_proveedor');?></th>
-			<th><?php echo $this->Paginator->sort('tiempo_reposicion');?></th>
-			<th><?php echo $this->Paginator->sort('control_invent');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('updated');?></th>
+		
+	
+
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -49,32 +30,35 @@
 		</td>
 		<td><?php echo $product['Product']['nombre']; ?>&nbsp;</td>
 		<td><?php echo $product['Product']['codigo']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['cod_barras']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['clasificacion']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['promocionar']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['destacar']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['ficha_producto']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['image_producto']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['inventario']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['stock_minimo']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['stock_maximo']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['costo']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['costo_promedio']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['tarifa_iva']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['valor_iva']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['porc_utilidad']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['valor_venta']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['estado_prod']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['rotacion']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['nit_proveedor']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['tiempo_reposicion']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['control_invent']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['created']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['updated']; ?>&nbsp;</td>
+
+
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $product['Product']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $product['Product']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $product['Product']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $product['Product']['id'])); ?>
+			<?php 
+				if($product['Product']['destacar']){
+					echo $this->Html->link(__('No Destacar', true), array('action' => 'nodestacar', $product['Product']['id'])); 
+				}else{
+					echo $this->Html->link(__('Destacar', true), array('action' => 'destacar', $product['Product']['id'])); 
+				}
+			?>
+			
+			<?php 
+				if($product['Product']['estado_prod']){
+					echo $this->Html->link(__('Desactivar', true), array('action' => 'desactivar', $product['Product']['id'])); 
+				}else{
+					echo $this->Html->link(__('Activar', true), array('action' => 'activar', $product['Product']['id'])); 
+				}
+			?>
+			
+			<?php 
+				if($product['Product']['promocionar']){
+					echo $this->Html->link(__('No Promocionar', true), array('action' => 'nopromocionar', $product['Product']['id'])); 
+				}else{
+					echo $this->Html->link(__('Promocionar', true), array('action' => 'promocionar', $product['Product']['id'])); 
+				}
+			?>
+			<?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $product['Product']['id'])); ?>
+			<?php echo $this->Html->link(__('Modificar', true), array('action' => 'edit', $product['Product']['id'])); ?>
+			<?php echo $this->Html->link(__('Borrar', true), array('action' => 'delete', $product['Product']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $product['Product']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

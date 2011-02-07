@@ -102,17 +102,7 @@ class Product extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
-		'control_invent' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+		)
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -161,6 +151,21 @@ class Product extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+	
+	function productosPromocionados($categoriaId=null){
+		if($categoriaId){
+			return $this->find("all",array("conditions"=>array("Product.promocionar"=>true,"Product.category_id"=>$categoriaId)));
+		}else{
+			return $this->find("all",array("conditions"=>array("Product.promocionar"=>true)));
+		}
+	}
+	function productosDestacados($categoriaId=null){
+		if($categoriaId){
+			return $this->find("all",array("conditions"=>array("Product.destacar"=>true,"Product.category_id"=>$categoriaId)));
+		}else{
+			return $this->find("all",array("conditions"=>array("Product.destacar"=>true)));
+		}
+	}
 
 }
 ?>

@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('role_id');
-		echo $this->Form->input('tipo_identificacion');
+		echo $this->Form->input('tipo_identificacion', array('type'=>'select','options'=>array(1=>'Cedula', 2=>'Nit')));
 		echo $this->Form->input('primer_nombre');
 		echo $this->Form->input('segundo_nombre');
 		echo $this->Form->input('primer_apellido');
@@ -19,7 +19,7 @@
 		echo $this->Form->input('telefono_adicional');
 		echo $this->Form->input('celular');
 		echo $this->Form->input('celular_adicional');
-		echo $this->Form->input('foto');
+		echo $this->Form->input('foto', array('type'=>'file'));
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
 	?>

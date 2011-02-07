@@ -73,6 +73,7 @@ class CategoriesController extends AppController {
 
 	function admin_add() {
 		if (!empty($this->data)) {
+			$this->data["Category"]["order"]=$this->Category->find("count")+1;
 			$this->Category->create();
 			if ($this->Category->save($this->data)) {
 				$this->Session->setFlash(__('The category has been saved', true));
@@ -118,7 +119,7 @@ class CategoriesController extends AppController {
    * Ordena las categorias se une con el widget de sortable
 
     * */
-    foreach($this->data["Category"] as $id=>$posicion){
+    foreach($this->data["Item"] as $id=>$posicion){
     $this->Category->id=$id;
     $this->Category->saveField("order",$posicion);
     }

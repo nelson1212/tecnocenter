@@ -1,6 +1,6 @@
 <div class="categories index">
 	<h2><?php __('Categories');?></h2>
-	<table cellpadding="0" cellspacing="0" id="sortable">
+	<table cellpadding="0" cellspacing="0" id="sortable" controller="categories">
 	<tr class='ui-state-disabled'>	
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('nombre');?></th>

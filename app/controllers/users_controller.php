@@ -2,12 +2,12 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
-  
+  	private $directorioFoto="";
   
     function beforeFilter()
 	{
 		$this->Auth->allow('add','view','index','delete','edit',
-							'admin_userReports','admin_selectReport','register');
+							'admin_userReports','admin_selectReport','register', 'admin_edit');
 	}
 	
 	function init()
@@ -63,12 +63,35 @@ class UsersController extends AppController {
   
 	function register()
 	{
-	  
+	  //debug($this->data); exit;
 		if (!empty($this->data)) 
 		{
-		  debug($this->data); exit;
+		  $this->User->recursive = 0;
+		  
+		  //Buscamos el nombre de usuario
+		  $userName = $this->User->find("first", array('fields'=>'username',"conditions"=>array("User.username"=>$this->data["User"]["username"])));				
+		  
+		  //Comprobamos si el nombre de usuario existe
+		  if($userName['User']['username'])
+		  {
+		  	$this->Session->setFlash(__("El nombre de usuario ya existe", true));
+			return;
+		  }
+		  
+		  //Subir foto
+		  $arrayFoto = $this->data['User']['foto'];
+		  $nombreFoto = $this->data["User"]["username"]; //Igual al username, ya que es unico
+		  
+		  if( ($this->data['User']['foto']['name']) && $this->uploadPicture($arrayFoto, $nombreFoto)==false)
+		  {
+		  	$this->Session->setFlash(__('Error al cargar la foto.', true));
+			$this->data["User"]["foto"]=$this->directorioFoto; //Ubicación de la foto
+		  	return;
+		  }
+		  
 			$this->User->create();
 			$this->data["User"]["role_id"]=4;// Is set as a Basic user for default
+			
 		  if ($this->User->save($this->data)) 
 			{
 				$aro =& $this->Acl->Aro;
@@ -155,12 +178,19 @@ class UsersController extends AppController {
 		$this->set(compact('roles'));
 	}
 
-	function admin_edit($id = null) {
-		if (!$id && empty($this->data)) {
+	function admin_edit($id = null) 
+	{
+		
+		//$foto['user']['foto'] = $this->User->find("first", array('fields'=>'foto','conditions'=>array('User.id'=>'$id')));
+		
+		if (!$id && empty($this->data)) 
+		{
 			$this->Session->setFlash(__('Invalid user', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
+		
+		if (!empty($this->data)) 
+		{
 			if ($this->User->save($this->data)) {
 				$this->Session->setFlash(__('The user has been saved', true));
 				$this->redirect(array('action' => 'index'));
@@ -171,6 +201,7 @@ class UsersController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
 		}
+		
 		$roles = $this->User->Role->find('list');
 		$this->set(compact('roles'));
 	}
@@ -222,6 +253,46 @@ class UsersController extends AppController {
 		}
 		$reporte = $this->User->find('all', array('fields'=>$array,'conditions'=>array('User.role_id'=>$rol)));
 		$this->set(compact('reporte'));
+	}
+	
+	//$foto array del archivo
+    //nombre_foto es igual al username ya que sera unico
+	function uploadPicture($foto, $nombre_foto)
+	{
+		//Caracteristicas de la imagen
+		$nombre = $foto['name'];
+		$tipo = $foto['type'];
+		$tamano = $foto['size'];
+		
+		//Comprobamos la extensión de la  imagen
+		if(strpos($tipo, "gif")) {
+			$nombre_foto=$nombre_foto.".gif";
+		} else if(strpos($tipo, "jpeg")) {
+			$nombre_foto=$nombre_foto.".jpg";
+		}
+		
+		//Directorio donde sera guardada la imagen
+		$directorio = WWW_ROOT."img\\fotos\\".$nombre_foto;
+		
+		//Comprobamos que la extensión y el tamaño sean los adecuados
+		if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg")) && ($tamano < 2000000))) 
+		{
+			$this->Session->setFlash(__("La extensión o el tamaño de la imagen no es correcta, 
+						solo se permiten imagenes .gif o .jpg y el tamaño es de 2 mb máximo.", true)); 
+		}
+		else
+		{
+			//Copiamos la imagen al directorio, especificado
+	   		if (copy($foto["tmp_name"], $directorio))
+	   		{
+	   			$this->directorioFoto=$directorio;
+			   return true;  
+	   		}
+	   		else
+	   		{ 
+			   return false; 
+	   		}
+		}
 	}
 }
 ?>
