@@ -2,7 +2,7 @@
 
 class AppController extends Controller {
 	
-	var $uses=array("Category");	
+	var $uses=array("Category","Service");	
 	var $components=array("Acl","Session", "Auth");	
 	
 	function beforeFilter()
@@ -14,8 +14,28 @@ class AppController extends Controller {
 
 	}
 	function beforeRender(){
-		$menuCategories=$this->Category->find("all",array("limit"=>8,"order"=>"order"));
-		$otherCategories=$this->Category->find("all",array("offset"=>8,"order"=>"order"));
-		$this->set(compact("menuCategories","otherCategories"));
+		 $menuCategories=$otherCategories=$otherServices=$menuServices=array();
+		$categories=$this->Category->find("all");
+		$count=0;
+		foreach($categories as $category){
+			if($count<8){
+				$menuCategories[]=$category;
+			}else{
+				$otherCategories[]=$category;
+			}
+			$count++;
+		}
+		$count=0;	
+		$services=$this->Service->find("all");
+		foreach($services as $service){
+			if($count<3){
+				$menuServices[]=$service;
+			}else{
+				$otherServices[]=$service;
+			}
+			$count++;
+		}
+		$this->set(compact("menuCategories","otherCategories","menuServices","otherServices"));
 	}
+
 }

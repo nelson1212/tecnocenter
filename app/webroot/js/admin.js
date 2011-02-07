@@ -1,10 +1,10 @@
 var server="/tecnocenter/";
-var sendData=function(order){
+var sendData=function(order,controller){
 		var data={};
 		for(i=0;i<order.length;i+=1){
-			data["data[Category]["+order[i]+"]"]=(i+1);
+			data["data[Item]["+order[i]+"]"]=(i+1);
 		}
-		$.post(server+"categories/reOrder",
+		$.post(server+controller+"/reOrder",
 				data,
 				function(response){
 					if(response=="yes"){
@@ -22,7 +22,7 @@ var sendData=function(order){
 			items:"tr:not(.ui-state-disabled)",
 			update:function(event, ui){
 		
-			sendData($(this).sortable("toArray"));
+			sendData($(this).sortable("toArray"),$("table").attr("controller"));
 			
 			
 			}
