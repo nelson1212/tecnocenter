@@ -34,10 +34,26 @@
 
 		<td class="actions">
 			<?php 
+				if($product['Product']['destacar']){
+					echo $this->Html->link(__('No Destacar', true), array('action' => 'nodestacar', $product['Product']['id'])); 
+				}else{
+					echo $this->Html->link(__('Destacar', true), array('action' => 'destacar', $product['Product']['id'])); 
+				}
+			?>
+			
+			<?php 
 				if($product['Product']['estado_prod']){
 					echo $this->Html->link(__('Desactivar', true), array('action' => 'desactivar', $product['Product']['id'])); 
 				}else{
 					echo $this->Html->link(__('Activar', true), array('action' => 'activar', $product['Product']['id'])); 
+				}
+			?>
+			
+			<?php 
+				if($product['Product']['promocionar']){
+					echo $this->Html->link(__('No Promocionar', true), array('action' => 'nopromocionar', $product['Product']['id'])); 
+				}else{
+					echo $this->Html->link(__('Promocionar', true), array('action' => 'promocionar', $product['Product']['id'])); 
 				}
 			?>
 			<?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $product['Product']['id'])); ?>

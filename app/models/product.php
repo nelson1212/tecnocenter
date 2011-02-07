@@ -151,6 +151,21 @@ class Product extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+	
+	function productosPromocionados($categoriaId=null){
+		if($categoriaId){
+			return $this->find("all",array("conditions"=>array("Product.promocionar"=>true,"Product.category_id"=>$categoriaId)));
+		}else{
+			return $this->find("all",array("conditions"=>array("Product.promocionar"=>true)));
+		}
+	}
+	function productosDestacados($categoriaId=null){
+		if($categoriaId){
+			return $this->find("all",array("conditions"=>array("Product.destacar"=>true,"Product.category_id"=>$categoriaId)));
+		}else{
+			return $this->find("all",array("conditions"=>array("Product.destacar"=>true)));
+		}
+	}
 
 }
 ?>

@@ -2,7 +2,7 @@
 
 class AppController extends Controller {
 	
-	var $uses=array("Category","Service");	
+	var $uses=array("Category","Service","Product");	
 	var $components=array("Acl","Session", "Auth");	
 	
 	function beforeFilter()
@@ -11,9 +11,9 @@ class AppController extends Controller {
 		$this->Auth->loginAction = array('controller'=>'users','action'=>'login');
 		$this->Auth->allow('*');
 		$this->Auth->redirectLogin = array('controller'=>'users','action'=>'index');
-
+		$this->categorias();
 	}
-	function beforeRender(){
+	function categorias(){
 		 $menuCategories=$otherCategories=$otherServices=$menuServices=array();
 		$categories=$this->Category->find("all");
 		$count=0;
@@ -35,7 +35,11 @@ class AppController extends Controller {
 			}
 			$count++;
 		}
-		$this->set(compact("menuCategories","otherCategories","menuServices","otherServices"));
+		$productosPromocionados=$this->Product->productosPromocionados();
+		$productosDestacados=$this->Product->productosDestacados();
+		//debug($productosPromocionados);
+		//debug($productosDestacados);
+		$this->set(compact("menuCategories","otherCategories","menuServices","otherServices","productosPromocionados","productosDestacados"));
 	}
 
 }

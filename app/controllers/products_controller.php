@@ -76,10 +76,40 @@ class ProductsController extends AppController {
 		$this->set('products', $this->paginate());
 	}
 	function admin_activar($id = null){
-		
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid product', true));
+			$this->redirect(array('action' => 'index'));
+		}
 	}
 	function admin_desactivar($id = null){
-		
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid product', true));
+			$this->redirect(array('action' => 'index'));
+		}
+	}
+	function admin_destacar($id = null){
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid product', true));
+			$this->redirect(array('action' => 'index'));
+		}
+	}
+	function admin_nodestacar($id = null){
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid product', true));
+			$this->redirect(array('action' => 'index'));
+		}
+	}
+	function admin_promocionar($id = null){
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid product', true));
+			$this->redirect(array('action' => 'index'));
+		}
+	}
+	function admin_nopromocionar($id = null){
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid product', true));
+			$this->redirect(array('action' => 'index'));
+		}
 	}
 	function admin_view($id = null) {
 		if (!$id) {
