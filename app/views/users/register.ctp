@@ -1,5 +1,5 @@
 <div class="users form">
-<?php echo $this->Form->create('User');?>
+<?php echo $this->Form->create('User', array('type'=>'file'));?>
   <fieldset>
     <legend><?php __('Agregar Usuarios'); ?></legend>
   <?php
@@ -23,7 +23,7 @@
     echo $this->Form->input('telefono_adicional', array('label'=>'Telefono adicional'));     
     echo $this->Form->input('celular', array('label'=>'Celular'));      
     echo $this->Form->input('celular_adicional', array('label'=>'Celular adicional'));  
-    echo $this->Form->input('foto', array('label'=>'Foto'));  
+    echo $this->Form->input('foto', array('label'=>'Foto','type'=>'file'));  
     echo $this->Form->input('username', array('label'=>'Username'));  
     echo $this->Form->input('password', array('label'=>'Password'));  
     

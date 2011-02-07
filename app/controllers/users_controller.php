@@ -6,7 +6,8 @@ class UsersController extends AppController {
   
     function beforeFilter()
 	{
-		$this->Auth->allow('add','view','index','delete','edit','admin_userReports', 'admin_selectReport');
+		$this->Auth->allow('add','view','index','delete','edit',
+							'admin_userReports','admin_selectReport','register');
 	}
 	
 	function init()
@@ -65,7 +66,7 @@ class UsersController extends AppController {
 	  
 		if (!empty($this->data)) 
 		{
-		  //debug($this->data); exit;
+		  debug($this->data); exit;
 			$this->User->create();
 			$this->data["User"]["role_id"]=4;// Is set as a Basic user for default
 		  if ($this->User->save($this->data)) 
