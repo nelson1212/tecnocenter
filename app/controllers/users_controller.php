@@ -112,6 +112,30 @@ class UsersController extends AppController {
 				);
 				$aro->create();
 				$aro->save($newAro);
+				
+				//ENVIAR EMAIL CON CONTRASEÑA Y NOMBRE DE USUARIO
+				$datos=$this->User->find("first", array('fields'=>array('email','username','password'), 
+									'conditions'=>array('User.id'=>$this->User->id)));
+									
+		        $para      = $datos['User']['email'];
+				$asunto    = 'Datos logueo';
+				$mensaje   = 'Hola, sus datos de logueo son :<br> Nombre de usuario :'.$datos['User']['username'].
+							 '<br>Contraseña: '.$datos['User']['password'];
+						 
+				$cabeceras = 'From: webmaster@example.com' . "\r\n" .
+				    		 'Reply-To: webmaster@example.com' . "\r\n" .
+				    		 'X-Mailer: PHP/' . phpversion();
+
+				if(mail($para, $asunto, $mensaje, $cabeceras))
+				{
+					$this->Session->setFlash(__('Datos de logueo enviados a su correo', true));
+				}else 
+				{
+					$this->Session->setFlash(__('Datos de logueo no enviados a su correo, por favor intenta mas tarde', true));
+				}
+			
+		
+			
 				$this->Session->setFlash(__('The user has been saved', true));
 				$this->redirect(array('action' => 'view', $this->User->id));
 			} else {
@@ -315,7 +339,7 @@ class UsersController extends AppController {
 									
 			if($datos['User']['email'])
 			{				
-				$para      = $email['User']['email'];
+				$para      = $datos['User']['email'];
 				$asunto    = 'Recuperación de datos logueo';
 				$mensaje   = 'Hola, sus datos de logueo son :<br> Nombre de usuario :'.$datos['User']['username'].
 							 '<br>Contraseña: '.$datos['User']['password'];
