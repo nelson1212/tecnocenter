@@ -143,3 +143,5 @@
 2011-02-07 21:23:13 Debug: Notice (8): Undefined index: username in [E:\xampp\htdocs\tecnocenter\app\controllers\users_controller.php, line 71]
 2011-02-07 21:23:17 Debug: Notice (8): Undefined index: username in [E:\xampp\htdocs\tecnocenter\app\controllers\users_controller.php, line 71]
 2011-02-07 21:23:25 Debug: Notice (8): Undefined index: username in [E:\xampp\htdocs\tecnocenter\app\controllers\users_controller.php, line 71]
+2011-02-08 02:35:26 Debug: Notice (8): Undefined index: Usuario in [E:\xampp\htdocs\tecnocenter\app\controllers\users_controller.php, line 325]
+2011-02-08 02:35:26 Debug: Notice (8): Undefined index: Usuario in [E:\xampp\htdocs\tecnocenter\app\controllers\users_controller.php, line 326]

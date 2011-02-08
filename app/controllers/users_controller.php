@@ -7,7 +7,9 @@ class UsersController extends AppController {
     function beforeFilter()
 	{
 		$this->Auth->allow('add','view','index','delete','edit',
-							'admin_userReports','admin_selectReport','register', 'admin_edit');
+							'admin_userReports','admin_selectReport',
+							'register', 'admin_edit',
+							'rememberPassword');
 	}
 	
 	function init()
@@ -68,13 +70,20 @@ class UsersController extends AppController {
 		{
 		  $this->User->recursive = 0;
 		  
-		  //Buscamos el nombre de usuario
-		  $userName = $this->User->find("first", array('fields'=>'username',"conditions"=>array("User.username"=>$this->data["User"]["username"])));				
-		  
+		  //Buscamos el nombre de usuario y el email
+		  $datos = $this->User->find("first", array('fields'=>array('username','email'),"conditions"=>array("User.username"=>$this->data["User"]["username"])));				
+		
 		  //Comprobamos si el nombre de usuario existe
-		  if($userName['User']['username'])
+		  if($datos['User']['username'])
 		  {
 		  	$this->Session->setFlash(__("El nombre de usuario ya existe", true));
+			return;
+		  }
+		  
+		    //Comprobamos el email del usuario existe
+		  if($datos['User']['email'])
+		  {
+		  	$this->Session->setFlash(__("Ya existe un usuario con ese Email", true));
 			return;
 		  }
 		  
@@ -293,6 +302,46 @@ class UsersController extends AppController {
 			   return false; 
 	   		}
 		}
+		
+	}
+
+    //Recordar email
+	function rememberPassword()
+	{
+		if (!empty($this->data)) 
+		{
+			$email=$this->User->find("first", array('fields'=>array('email'), 
+									'conditions'=>array('User.email'=>trim($this->data['User']['email']))));
+									
+			if($email['User']['email'])
+			{
+				$datos=$this->User->find("first", array('fields'=>array('username','password'), 
+									'conditions'=>array('User.email'=>trim($this->data['User']['email']))));
+									
+				$para      = $email['User']['email'];
+				$asunto    = 'Recuperación de datos logueo';
+				$mensaje   = 'Hola, sus datos de logueo son :<br> Nombre de usuario :'.$datos['User']['username'].
+							 '<br>Contraseña: '.$datos['User']['password'];
+						 
+				$cabeceras = 'From: webmaster@example.com' . "\r\n" .
+				    		 'Reply-To: webmaster@example.com' . "\r\n" .
+				    		 'X-Mailer: PHP/' . phpversion();
+
+				if(mail($para, $asunto, $mensaje, $cabeceras))
+				{
+					$this->Session->setFlash(__('Datos enviados a su correo', true));
+				}else 
+				{
+					$this->Session->setFlash(__('Datos no enviados a su correo, por favor intenta mas tarde', true));
+				}
+				return;
+			}
+			else 
+			{
+				$this->Session->setFlash(__('No existe ningun usuario registrado con ese email', true));
+				return;
+			}
+		}	
 	}
 }
 ?>
