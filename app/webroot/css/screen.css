@@ -369,7 +369,7 @@ form .submit input[type=submit]:hover {
 
 /** End Home **/
 
-/**  Start Pages   **/
+/**  Navigation  **/
   #content-wrap{
   } 
 
@@ -494,30 +494,6 @@ form .submit input[type=submit]:hover {
     color:#25516d;
   }
   
-  .tooltip{
-   	width: 245px;
-   	height: 255px;
-   	background: #21AEDD;
-   	position:absolute;
-   	border: 1px solid #d0d0d0;
-   	margin-left:275px;
-   	margin-top:-116px;
-   	z-index:1;
-   	display:none;
-  }
-  
-  .triangulo_tooltip{
-    position:absolute;
-    margin-left:251px;
-   	margin-top:-26px;
-   	z-index:2;
-   	display:none;
-  }
-   
-  li:hover .tooltip,li:hover .triangulo_tooltip {
-     display:block;
-  }
-  
   #left-header .separ_tittle{
     text-shadow: 1px 1px 1.5px #ffffff;
     font-size:17px;
@@ -539,6 +515,10 @@ form .submit input[type=submit]:hover {
     padding-top:29px;
   }
   
+  .button_wrap{
+    margin-bottom:29px;
+  }
+  
   #left-content .separ_tittle{
     text-shadow: 1px 1px 1.5px #ffffff;
     font-size:20px;
@@ -546,6 +526,99 @@ form .submit input[type=submit]:hover {
     text-align:center;
   }
   
+   .tooltip{
+   	width: 245px;
+   	height: 255px;
+   	background: #21AEDD;
+   	position:absolute;
+   	border: 1px solid #d0d0d0;
+   	margin-left:275px;
+   	margin-top:-130px;
+   	z-index:1;
+   	display:none;
+  
+  }
+  
+  .tooltip_menu{
+    width: 186px;
+   	height: 223px;
+   	background: #555555;
+   	position:absolute;
+   	-moz-border-radius: 1em;
+  	-webkit-border-radius: 1em;
+  	margin-top:16px;
+  	margin-left:29.5px;
+ 
+  }
+  
+  .triangulo_tooltip{
+    position:absolute;
+    margin-left:251px;
+   	margin-top:-26px;
+   	z-index:2;
+   	display:none;
+  }
+   
+  li:hover .tooltip, li:hover .triangulo_tooltip, li:hover .tooltip_menu {
+     display:block;
+  }
+  
+  .tooltip_nav li {
+    
+    margin-top:7px;
+    width:	186px;
+    height: 27px;
+    font-size:13px;
+    font-family: Verdana , Arial, sans-serif;
+    text-transform:uppercase;
+    
+  }
+  .tooltip_nav li a{
+	background-image:none;
+	width:	186px;
+	height: 27px;
+	display: block;
+	line-height: 27px;
+	vertical-align:middle;
+	text-align:center; 
+    text-decoration: none;
+    padding-right: 20px;
+    color:#000000;
+    font-weight: bold;
+    
+  }
+  
+  .tooltip_nav li a:hover {
+    background-image:none;
+    color:#21AEDD;
+    
+  }
+  
+  .promocion_nav ul {
+   height:238px;
+   width:246px;
+  }
+  
+  .promocion_nav li {
+    
+    margin-top:7px;
+    width:	116px;
+    height: 65px;
+    float:left;
+    
+  }
+  .promocion_nav li a{
+	background-image:none;
+	-moz-border-radius: 1em;
+  	-webkit-border-radius: 1em;
+  	border : 1px solid #ccc;
+	width:	116px;
+	height: 65px;
+	display: block;
+    color:#FF2323;
+    
+  }
+ 
   #left-footer{
     background:#ff2323;
     height:40px;
@@ -553,4 +626,51 @@ form .submit input[type=submit]:hover {
   
  
   
-/** End Pages **/
+/** End Navigation **/
+
+/**  Content  **/
+
+#content_wrap {
+  background:#C73E14;
+  width: 682px;
+  float:left;
+  
+}
+
+#producto_destacado {
+   width:657px;
+   height:360px;
+   -moz-border-radius: 0.5em;
+   -webkit-border-radius: 0.5em;
+   background:#333333;
+   font-family: Verdana;
+}
+
+#producto_destacado span {
+   font-size:28px;
+}
+
+#producto_destacado .descripcion_producto {
+   color:white;
+   width:194px;
+   height: 113px;
+   background:#292e33;
+   
+}
+
+#producto_destacado .compra_producto {
+   
+}
+
+#buscar_producto{
+
+}
+
+#productos{
+
+}
+
+
+
+
+/**	 End Content **/ 

@@ -40,7 +40,7 @@ class AppController extends Controller {
 		$productosPromocionados=$this->Product->productosPromocionados();
 		$productosDestacados=$this->Product->productosDestacados();
 		//debug($productosPromocionados);
-		//debug($productosDestacados);
+		//	debug($productosDestacados);
 		$this->set(compact("menuCategories","otherCategories","menuServices","otherServices","productosPromocionados","productosDestacados"));
 	}
 
