@@ -310,14 +310,11 @@ class UsersController extends AppController {
 	{
 		if (!empty($this->data)) 
 		{
-			$email=$this->User->find("first", array('fields'=>array('email'), 
+			$datos=$this->User->find("first", array('fields'=>array('email','username','password'), 
 									'conditions'=>array('User.email'=>trim($this->data['User']['email']))));
 									
-			if($email['User']['email'])
-			{
-				$datos=$this->User->find("first", array('fields'=>array('username','password'), 
-									'conditions'=>array('User.email'=>trim($this->data['User']['email']))));
-									
+			if($datos['User']['email'])
+			{				
 				$para      = $email['User']['email'];
 				$asunto    = 'Recuperación de datos logueo';
 				$mensaje   = 'Hola, sus datos de logueo son :<br> Nombre de usuario :'.$datos['User']['username'].
