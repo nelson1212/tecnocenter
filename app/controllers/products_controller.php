@@ -80,36 +80,60 @@ class ProductsController extends AppController {
 			$this->Session->setFlash(__('Invalid product', true));
 			$this->redirect(array('action' => 'index'));
 		}
+ 		$this->Product->id=$id;
+    	$this->Product->saveField("estado_prod",true);
+		$this->Session->setFlash(__('La información del producto se ha actualizado', true));
+		$this->redirect(array('action' => 'index'));
 	}
 	function admin_desactivar($id = null){
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid product', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->Product->id=$id;
+    	$this->Product->saveField("estado_prod",false);
+		$this->Session->setFlash(__('La información del producto se ha actualizado', true));
+		$this->redirect(array('action' => 'index'));
 	}
 	function admin_destacar($id = null){
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid product', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->Product->id=$id;
+    	$this->Product->saveField("destacar",true);
+		$this->Session->setFlash(__('La información del producto se ha actualizado', true));
+		$this->redirect(array('action' => 'index'));
 	}
 	function admin_nodestacar($id = null){
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid product', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->Product->id=$id;
+    	$this->Product->saveField("destacar",false);
+		$this->Session->setFlash(__('La información del producto se ha actualizado', true));
+		$this->redirect(array('action' => 'index'));
 	}
 	function admin_promocionar($id = null){
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid product', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->Product->id=$id;
+    	$this->Product->saveField("promocionar",true);
+		$this->Session->setFlash(__('La información del producto se ha actualizado', true));
+		$this->redirect(array('action' => 'index'));
 	}
 	function admin_nopromocionar($id = null){
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid product', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->Product->id=$id;
+    	$this->Product->saveField("promocionar",false);
+		$this->Session->setFlash(__('La información del producto se ha actualizado', true));
+		$this->redirect(array('action' => 'index'));
 	}
 	function admin_view($id = null) {
 		if (!$id) {
