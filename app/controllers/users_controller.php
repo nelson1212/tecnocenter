@@ -6,6 +6,7 @@ class UsersController extends AppController {
   
     function beforeFilter()
 	{
+		parent::beforeFilter();
 		$this->Auth->allow('add','view','index','delete','edit',
 							'admin_userReports','admin_selectReport',
 							'register', 'admin_edit',
