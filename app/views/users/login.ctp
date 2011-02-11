@@ -1,6 +1,6 @@
 <div class="login">
 	<h1> <?php __("Acces to de CMS")?> </h1>
-<?php if ($session->check('Message.auth')) $session->flash('auth');?>
+
 <?php echo $this->Form->create('User');?>
 	<fieldset>
  	
