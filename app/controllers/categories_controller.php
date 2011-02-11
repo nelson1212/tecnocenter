@@ -114,10 +114,9 @@ class CategoriesController extends AppController {
 		$this->Session->setFlash(__('Category was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	  function reOrder(){
-  /* 
-   * Ordena las categorias se une con el widget de sortable
-
+	function reOrder(){
+ 	 /* 
+   		* Ordena las categorias se une con el widget de sortable
     * */
     foreach($this->data["Item"] as $id=>$posicion){
     $this->Category->id=$id;
