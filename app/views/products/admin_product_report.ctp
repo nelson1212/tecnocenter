@@ -20,6 +20,7 @@
 	} 
   else 
 	{
+	
 	echo "<h4>Seleciona los parametros para generar el reporte</h4>";
     echo "<hr>"; 
     echo $this->Form->input('Reporte.categoria', 
@@ -29,10 +30,10 @@
                             array('label'=>'Selecciona un estado', 'type'=>'select','empty'=>'','options'=>array('1'=>'Activo','2'=>'Inactivo')));
 							
 	echo $this->Form->input('Reporte.fecha_inicial', 
-                            array('label'=>'Fecha inicial', 'empty'=>array(""),'type'=>'date'));
+                            array('label'=>'Fecha inicial', 'empty'=>array("")));
 							
 	echo $this->Form->input('Reporte.fecha_final', 
-                            array('label'=>'Fecha final', 'empty'=>array(""),'type'=>'date'));
+                            array('label'=>'Fecha final', 'empty'=>array("")));
 							
 	 echo "<hr>";   
 	 echo "<br>"; 

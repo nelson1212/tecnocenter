@@ -2,8 +2,7 @@
 class ProductsController extends AppController {
 
 	var $name = 'Products';
-
-
+	
    function beforeFilter()
 	{
 		parent::beforeFilter();
@@ -198,29 +197,23 @@ class ProductsController extends AppController {
 	{
 		if(empty($this->data))
 		{	
-			//debug($this->data);
 			$categorias = $this->Product->Category->find('list');
 			$this->set(compact('categorias'));
 		}
 		else if($this->data)
 		{
-			//debug($this->data);
 			//Parametros del reporte
 			$categoria=$this->data['Reporte']['categoria'];
 			$estado=$this->data['Reporte']['estado'];
 				
 			//Fecha 1	
-			$ano = $this->data['Reporte']['fecha_inicial']['year'];
-			$mes = $this->data['Reporte']['fecha_inicial']['month'];
-			$dia = $this->data['Reporte']['fecha_inicial']['day'];
-		    $fecha1= $ano."-".$mes."-".$dia;
+		    $fecha1=$this->data['Reporte']['fecha_inicial'];
+			
 			//Fecha 2
-			$ano = $this->data['Reporte']['fecha_final']['year'];
-			$mes = $this->data['Reporte']['fecha_final']['month'];
-			$dia = $this->data['Reporte']['fecha_final']['day'];
-		    $fecha2= $ano."-".$mes."-".$dia;
+		    $fecha2=$this->data['Reporte']['fecha_final'];
 			
 		    //Campos a mostrar en el reporte
+		    $array=array();
 			foreach($this->data['Product'] as $indice =>$valor)
 			{
 				if($valor==1)
@@ -229,6 +222,7 @@ class ProductsController extends AppController {
 				}
 			}
 			//Filtros de la condición
+			$reportes=array();
 			$reportes=array('Product.category_id'=>$categoria, 
 							'Product.estado_prod'=>$estado);	
 			
@@ -243,7 +237,7 @@ class ProductsController extends AppController {
 			}
 			
 			//Si las fechas son diferentes de vacia
-			if($fecha1!='0-0-0' or $fecha2!='0-0-0')
+			if($fecha1!=null or $fecha2!=null)
 			{	
 				$fechas = array('Product.created between ? and ?'=>array($fecha1, $fecha2));	
 				
@@ -253,16 +247,16 @@ class ProductsController extends AppController {
 				if($fecha1 > $fecha2)
 				{
 					$this->Session->setFlash(__('La fecha inicial debe ser menor o igual a la fecha final', true));
+					$categorias = $this->Product->Category->find('list');
+					$this->set(compact('categorias'));
 					return;
-					
 				}
-
+				
 				array_push($condiciones,$fechas);
 			}
 			
 			$reporte = $this->Product->find('all', array('fields'=>$array,
-											'conditions'=>$condiciones));
-			//debug($reporte);													
+											'conditions'=>$condiciones));								
 			$this->set(compact('reporte'));
 		}
 	}

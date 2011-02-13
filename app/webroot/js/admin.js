@@ -32,4 +32,3 @@ var sendData=function(order,controller){
 		$( "#sortable tbody > tr" ).disableSelection();
 
 	});
-

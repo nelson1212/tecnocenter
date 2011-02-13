@@ -22,24 +22,25 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
+		<?php __('Tecno Center:'); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-
+		echo $this->Html->css('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/themes/base/jquery-ui.css');
+		echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/jquery-ui.min.js');
 		echo $this->Html->css('cake.generic');
 		echo $this->Html->script("https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js");
 		echo $this->Html->script("jquery-ui-1.8.9.custom.min.js");
 		echo $this->Html->script("admin.js");
-
+		echo $this->Html->script("dates.js");
 		echo $scripts_for_layout;
 	?>
 </head>
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link(__('CakePHP: the rapid development php framework', true), 'http://cakephp.org'); ?></h1>
+			<h1><?php echo $this->Html->link(__('nelson CakePHP: the rapid development php framework', true), 'http://cakephp.org'); ?></h1>
 		</div>
 		<div id="content">
 
