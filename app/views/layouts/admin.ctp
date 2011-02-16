@@ -31,6 +31,7 @@
 		echo $this->Html->css('cake.generic');
 		echo $this->Html->css('uploadify');
 		echo $this->Html->script("https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js");
+		echo $this->Html->script("jquery-ui-1.8.9.custom.min.js");
 		echo $this->Html->script("admin.js");
 		echo $this->Html->script("jquery-ui.js");
 		echo $this->Html->script("swfobject.js");
