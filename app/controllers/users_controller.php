@@ -155,8 +155,8 @@ class UsersController extends AppController {
 		if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
-				/*$aro =& $this->Acl->Aro;
-				 * $elaro=$aro->find("first",array("conditions"=>array("Model"=>"Role","foreign_key"=>$this->data["Role"]["id"])));
+				$aro =& $this->Acl->Aro;
+				 $elaro=$aro->find("first",array("conditions"=>array("Model"=>"Role","foreign_key"=>$this->data["User"]["role_id"])));
 				$newAro=array(
 					"alias"=>$this->data["User"]["username"],
 					"parent_id"=>$elaro["Aro"]["id"],
@@ -164,14 +164,14 @@ class UsersController extends AppController {
 					"model"=>"User",
 				);
 				$aro->create();
-				$aro->save($newAro);*/
+				$aro->save($newAro);
 				$this->Session->setFlash(__('The user has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
 			}
 		}
-		$roles = $this->User->Role->find('list');
+		$roles = $this->User->Role->find('list',array("conditions"=>array("id >"=>"1")));
 		$this->set(compact('roles'));
 	}
 
@@ -377,7 +377,7 @@ class UsersController extends AppController {
 		$this->Acl->allow('Vendedor', 'admin_menu');
 		$this->Acl->allow('Web', 'menu');
 		$this->Acl->allow('Clientes', 'menu');
-		$this->User->query("INSERT INTO `users` (`id`, `role_id`, `tipo_identificacion`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `email`, `direccion`, `pais`, `departamento`, `ciudad`, `telefono`, `telefono_adicional`, `celular`, `celular_adicional`, `foto`, `username`, `password`) VALUES(1, 1, 'C. ', 'Super', '', 'Administrador', '', 'superadministrador@tecnocenter.com', '', '', '', '', 5555555, 55555555, 2147483647, 2147483647, '', 'superadmistrador', 'cdc097124bc6e6637abefa0f584fe8720b729bbe'),(2, 2, 'C. ', 'administrador', '', 'Administrador', '', 'administrador@tecnocenter.com', '', '', '', '', 5555555, 55555555, 2147483647, 2147483647, '', 'administrador', '681e76a4bb4926746ed071cdae432aa2702d3af4'),(3, 3, 'C. ', 'vendedor', '', 'vendedor', '', 'vendedor@tecnocenter.com', '', '', '', '', 5555555, 55555555, 2147483647, 2147483647, '', 'vendedor', 'e7f8fdafa72a45dea5369fcf90dc1eac45c7fb58');");		
+		//$this->User->query("INSERT INTO `users` (`id`, `role_id`, `tipo_identificacion`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `email`, `direccion`, `pais`, `departamento`, `ciudad`, `telefono`, `telefono_adicional`, `celular`, `celular_adicional`, `foto`, `username`, `password`) VALUES(1, 1, 'C. ', 'Super', '', 'Administrador', '', 'superadministrador@tecnocenter.com', '', '', '', '', 5555555, 55555555, 2147483647, 2147483647, '', 'superadmistrador', 'cdc097124bc6e6637abefa0f584fe8720b729bbe'),(2, 2, 'C. ', 'administrador', '', 'Administrador', '', 'administrador@tecnocenter.com', '', '', '', '', 5555555, 55555555, 2147483647, 2147483647, '', 'administrador', '681e76a4bb4926746ed071cdae432aa2702d3af4'),(3, 3, 'C. ', 'vendedor', '', 'vendedor', '', 'vendedor@tecnocenter.com', '', '', '', '', 5555555, 55555555, 2147483647, 2147483647, '', 'vendedor', 'e7f8fdafa72a45dea5369fcf90dc1eac45c7fb58');");		
 	}
 	function reset(){
 		$this->User->query("TRUNCATE TABLE `users`");

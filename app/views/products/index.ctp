@@ -6,6 +6,7 @@
 			<th><?php echo $this->Paginator->sort('category_id');?></th>
 			<th><?php echo $this->Paginator->sort('manufacturer_id');?></th>
 			<th><?php echo $this->Paginator->sort('nombre');?></th>
+			<th><?php echo $this->Paginator->sort('descripcion');?></th>
 			<th><?php echo $this->Paginator->sort('codigo');?></th>
 			<th><?php echo $this->Paginator->sort('cod_barras');?></th>
 			<th><?php echo $this->Paginator->sort('clasificacion');?></th>
@@ -46,6 +47,7 @@
 			<?php echo $this->Html->link($product['Manufacturer']['nombre'], array('controller' => 'manufacturers', 'action' => 'view', $product['Manufacturer']['id'])); ?>
 		</td>
 		<td><?php echo $product['Product']['nombre']; ?>&nbsp;</td>
+		<td><?php echo $product['Product']['descripcion']; ?>&nbsp;</td>
 		<td><?php echo $product['Product']['codigo']; ?>&nbsp;</td>
 		<td><?php echo $product['Product']['cod_barras']; ?>&nbsp;</td>
 		<td><?php echo $product['Product']['clasificacion']; ?>&nbsp;</td>

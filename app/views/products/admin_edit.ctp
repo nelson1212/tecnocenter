@@ -7,6 +7,7 @@
 		echo $this->Form->input('category_id');
 		echo $this->Form->input('manufacturer_id');
 		echo $this->Form->input('nombre');
+		echo $this->Form->input('descripcion');
 		echo $this->Form->input('codigo');
 		echo $this->Form->input('cod_barras');
 		echo $this->Form->input('clasificacion');
