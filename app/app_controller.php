@@ -4,7 +4,7 @@ class AppController extends Controller {
 	
 	var $uses=array("Category","Service","Product");	
 	var $components=array("Acl","Session", "Auth");	
-	
+	private $tiposIdentificacion=array("C. C."=>"CC","T.I."=>"T. I.","C. E."=>"C. E");
 	function beforeFilter()
 	{
 		if(isset($this->params["prefix"])&&$this->params["prefix"]=="admin") $this->layout="admin";
@@ -12,6 +12,9 @@ class AppController extends Controller {
 		$this->Auth->allow('*');
 		$this->Auth->redirectLogin = array('controller'=>'users','action'=>'index');
 		$this->categorias();
+	}
+	function beforeRender(){
+		$this->set("tiposIdentificacion",	$this->tiposIdentificacion);
 	}
 	
 	function categorias()

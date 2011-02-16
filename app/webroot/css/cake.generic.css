@@ -72,6 +72,7 @@ ul, li {
 /** Layout **/
 #container {
 	text-align: left;
+	min-width:620px;
 }
 
 #header{
@@ -79,9 +80,9 @@ ul, li {
 }
 #header h1 {
 	line-height:20px;
-	background: #003d4c url('../img/cake.icon.png') no-repeat left;
+	background: #003d4c url('../img/logo_cms.png') no-repeat left;
 	color: #fff;
-	padding: 0px 30px;
+	padding: 0px 50px;
 }
 #header h1 a {
 	color: #fff;
@@ -93,6 +94,16 @@ ul, li {
 	color: #fff;
 	background: #003d4c;
 	text-decoration: underline;
+}
+#header .logo{
+	background: #003d4c url('../img/logo_cms.png') no-repeat left;
+}
+#header .logout{
+	float: right;
+	color:white;
+}
+#header .a{
+	float: right;
 }
 #content{
 	background: #fff;
@@ -106,7 +117,17 @@ ul, li {
 	padding: 6px 10px;
 	text-align: right;
 }
+.nav{
+float:right;
+}
+.nav li{
+float:left;
+list-style:none;
 
+}
+.nav li a{
+color:white;
+}
 /** containers **/
 div.form,
 div.index,
@@ -229,6 +250,24 @@ form {
 	margin-right: 20px;
 	padding: 0;
 	width: 95%;
+}
+.image-form form{
+	width: 60%;
+	float:left;
+}
+.image-form{
+min-width:620px;
+}
+.image-form .images{
+	float:right;
+	width:30%;
+}
+.image-form .preview{
+	height: 250px;
+}
+.image-form .preview .img{
+	width:250px;
+	height: 250px;
 }
 fieldset {
 	border: 1px solid #ccc;
@@ -532,4 +571,26 @@ div.code-coverage-results span.result-ok {
 }
 div.code-coverage-results span.result-good {
 	color: #0a0;
+}
+/** Developer  Utilities*/
+#developer-utilities{
+	position: fixed;
+	bottom:0;
+	height:40px;
+	background:black;
+	width:100%;
+	-moz-border-radius-topleft:30px;
+	-moz-border-radius-topright:30px;
+	text-align: center;
+	padding-top:15px;
+}
+#developer-utilities ul{
+	width:100%;
+	text-align: center;
+}
+#developer-utilities ul li{
+	list-style: none;
+	float:left;
+}
+#developer-utilities  a{
 }

@@ -9,7 +9,7 @@
   	<div class="separ sprite separador_nav color">
     	<div class="separ_tittle">Productos</div>
     </div>
-    <div class="button_wrap">
+    <div class="button_wrap_productos">
 	  	<ul class="second_nav">
 		    <?php foreach($menuCategories as $menuCategory):?> 
 		    <li> <?php echo $this->Html->link($menuCategory["Category"]["nombre"],array("controller"=>"categories","action"=>"view",$menuCategory["Category"]["id"])) ?></li>
@@ -32,7 +32,7 @@
    <div class="separ sprite separador_nav color">
     	<div class="separ_tittle">Servicios</div>
    </div>
-   <div class="button_wrap">
+   <div class="button_wrap_servicios">
 	  	<ul class="second_nav">
 		    <li><a>Otros</a>
 		    	<div class=" sprite triangulo_tooltip punta_tooltip"></div>

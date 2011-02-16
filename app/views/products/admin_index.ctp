@@ -1,16 +1,16 @@
 <div class="products index">
-	<h2><?php __('Products');?></h2>
+	<h2><?php __('Productos');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('category_id');?></th>
-			<th><?php echo $this->Paginator->sort('manufacturer_id');?></th>
+			<th><?php echo $this->Paginator->sort("Fabricante",'manufacturer_id');?></th>
 			<th><?php echo $this->Paginator->sort('nombre');?></th>
 			<th><?php echo $this->Paginator->sort('codigo');?></th>
 		
 	
 
-			<th class="actions"><?php __('Actions');?></th>
+			<th class="actions"><?php __('Acciones');?></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -78,16 +78,18 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Acciones'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Product', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Producto', true), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Listar Categoría', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nueva Categoría', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
+		<!--
 		<li><?php echo $this->Html->link(__('List Manufacturers', true), array('controller' => 'manufacturers', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Manufacturer', true), array('controller' => 'manufacturers', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Inventories', true), array('controller' => 'inventories', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Inventory', true), array('controller' => 'inventories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Photo Albums', true), array('controller' => 'photo_albums', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Photo Album', true), array('controller' => 'photo_albums', 'action' => 'add')); ?> </li>
+		-->
 	</ul>
 </div>

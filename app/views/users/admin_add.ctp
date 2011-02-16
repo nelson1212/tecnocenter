@@ -4,7 +4,9 @@
  		<legend><?php __('Admin Add User'); ?></legend>
 	<?php
 		echo $this->Form->input('role_id');
-		echo $this->Form->input('tipo_identificacion');
+		echo $this->Form->input('username');
+		echo $this->Form->input('password');
+		echo $this->Form->input('tipo_identificacion',array("options"=>$tiposIdentificacion));
 		echo $this->Form->input('primer_nombre');
 		echo $this->Form->input('segundo_nombre');
 		echo $this->Form->input('primer_apellido');
@@ -19,8 +21,7 @@
 		echo $this->Form->input('celular');
 		echo $this->Form->input('celular_adicional');
 		echo $this->Form->input('foto');
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
+		
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

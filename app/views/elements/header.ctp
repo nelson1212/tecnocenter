@@ -10,6 +10,8 @@
               <legend>Zona de Usuarios</legend>
               <?php echo $form->input("username",array("label"=>"Nombre:"));?>   
               <?php echo $form->input("password",array("label"=>"Contraseña:"));?>
+              <?php echo $form->submit(__('Registrarse', true), array('div' => false));?>
+              <?php echo $form->submit(__('Ingresar', true), array('div' => false));?>   
             </fieldset>
           <?php echo $form->end();?>
         </div>  

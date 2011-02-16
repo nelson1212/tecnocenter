@@ -258,15 +258,19 @@ form .submit input[type=submit]:hover {
 
 .boton_comprar{height:50px;width:161px;background-position:0 0;}
 .boton_registrarse_ingresar{height:18px;width:81px;background-position:-161px 0;}
-.brillo_boton_buscar{height:21px;width:1px;background-position:-161px -18px;}
-.carrito_compras{height:26px;width:29px;background-position:-162px -18px;float:left;}
+.carrito_compras{height:26px;width:29px;background-position:-161px -18px;float:left;}
 .icono_mi_cuenta{height:22px;width:16px;background-position:-191px -18px;}
 .linea_separadora_vertical{height:1px;width:656px;background-position:-242px 0;}
 .logo_tecnocenter{height:67px;width:247px;background-position:0 -50px;}
 .menu_navegacion_activo{height:32px;width:182px;background-position:-242px -1px;}
 .menu_navegacion_inactivocopia{height:32px;width:182px;background-position:-424px -1px;}
 .punta_tooltip{height:26px;width:25px;background-position:-207px -18px;}
-.separador_articulos{height:309px;width:2px;background-position:0 -117px;}
+
+.separador_articulos_uno{height:309px;width:2px;background-position:0 -117px;position:absolute;margin-left:-8px;}
+.separador_articulos_dos{height:309px;width:2px;background-position:0 -117px;position:absolute;margin-left:207px;}
+.separador_articulos_tres{height:309px;width:2px;background-position:0 -117px;position:absolute;margin-left:219px;margin-top:401px;}
+.separador_articulos_cuatro{height:309px;width:2px;background-position:0 -117px;position:absolute;margin-left:434px;margin-top:401px;}
+
 .separador_footer{height:27px;width:2px;background-position:-232px -18px;}
 .separador_main{height:9px;width:950px;background-position:-2px -117px;}
 .separador_nav{height:50px;width:272px;background-position:-247px -50px;}
@@ -352,6 +356,9 @@ form .submit input[type=submit]:hover {
    
 }
 
+
+
+
 .login label{
   width:75px;
   float:left;
@@ -362,6 +369,17 @@ form .submit input[type=submit]:hover {
  
 }
 
+.login input[type=submit] {
+	background: url("../img/sprite.png") -161px 0px;
+	color:white;
+	font-size:12px;
+	width:81px;
+}
+
+.login input[type=submit]{
+  border: medium none;
+  
+}
 
 /** Footer Home **/
 
@@ -420,7 +438,7 @@ form .submit input[type=submit]:hover {
   }
   
   #left-content ul{
-  	width:	246px;
+  	width:	255px;
   }
   
   .second_nav {
@@ -503,7 +521,7 @@ form .submit input[type=submit]:hover {
   
   
   #left-header .icon{
-    background-position:-162px -18px;
+    background-position:-161px -18px;
     margin-left: 21px;
     margin-top: 5px;
     margin-right: 13px;
@@ -515,8 +533,12 @@ form .submit input[type=submit]:hover {
     padding-top:29px;
   }
   
-  .button_wrap{
-    margin-bottom:29px;
+  .button_wrap_productos{
+    height:327px;
+  }
+  
+  .button_wrap_servicios{
+    height:143px;
   }
   
   #left-content .separ_tittle{
@@ -542,7 +564,7 @@ form .submit input[type=submit]:hover {
   .tooltip_menu{
     width: 186px;
    	height: 223px;
-   	background: #555555;
+   	background: #FFFFFF;
    	position:absolute;
    	-moz-border-radius: 1em;
   	-webkit-border-radius: 1em;
@@ -601,8 +623,8 @@ form .submit input[type=submit]:hover {
   
   .promocion_nav li {
     
-    margin-top:7px;
-    width:	116px;
+    margin-top:11px;
+    width:	127px;
     height: 65px;
     float:left;
     
@@ -611,11 +633,13 @@ form .submit input[type=submit]:hover {
 	background-image:none;
 	-moz-border-radius: 1em;
   	-webkit-border-radius: 1em;
+  	border-radius: 1em;
   	border : 1px solid #ccc;
 	width:	116px;
 	height: 65px;
 	display: block;
     color:#FF2323;
+    margin-left:11px;
     
   }
  
@@ -631,46 +655,203 @@ form .submit input[type=submit]:hover {
 /**  Content  **/
 
 #content_wrap {
-  background:#C73E14;
   width: 682px;
   float:left;
   
 }
 
 #producto_destacado {
-   width:657px;
+   width:656px;
    height:360px;
+   margin-top:15px;
+   margin-left:11px;
    -moz-border-radius: 0.5em;
    -webkit-border-radius: 0.5em;
-   background:#333333;
+   background: url("../img/galeria_fondo.png") no-repeat;
    font-family: Verdana;
 }
 
-#producto_destacado span {
+.destacado {
+   padding-top:15px;
+   margin-left:13px;
    font-size:28px;
+   display:block;
+}
+
+#producto_destacado .compra {
+   padding-top:11px;
+   margin-left:11px;
+   font-size:23px;
+   display:block;
 }
 
 #producto_destacado .descripcion_producto {
-   color:white;
+   
    width:194px;
    height: 113px;
    background:#292e33;
+   margin-left:13px;
+   margin-top:16px;
    
+}
+
+#producto_destacado .descripcion_producto p{
+   color:white;
+   margin-left:12px;
+   padding-top:13px;
+   font-size:12px;
 }
 
 #producto_destacado .compra_producto {
-   
+   margin-left:13px;
+   margin-top:10px;
 }
 
 #buscar_producto{
+   margin-top:6px;
+   width:657px;
+   height:55px;
+   margin-left:11px;
+   -moz-border-radius: 0.5em;
+   -webkit-border-radius: 0.5em;
+   background:#b0b9c6;
+   
+}
 
+#buscar_producto form{
+   width:594px;
+   margin-left:38px;
+   margin-top:16px;
+
+   float:left;
+}
+
+#buscar_producto form fieldset{
+   width:594px;
+   margin:0 auto;
+   float:left;
+}
+
+#buscar_producto .submit {
+   
+   
+}
+
+#buscar_producto .input {
+   float:left;
+   height:21px;   
+}
+
+#buscar_producto .input label {
+   margin-right:16px;
+   font-size:13px;
+   font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;   
+}
+
+#buscar_producto input[type=submit] {
+	background: url("../img/brillo_boton_buscar.gif") repeat-x;
+	color:white;
+	font-weight:bold;
+	font-size:14px;
+	width: 107px;
+}
+
+#buscar_producto input[type=text]{
+  width:330px;
+  
+}
+
+#buscar_producto input[type=submit],#buscar_producto input[type=text]{
+  border: medium none;
+  
 }
 
 #productos{
-
+   margin-top:11px;
+   width:657px;
+   height:761px;
+   margin-left:11px;
+   background:#FFFFFF;
 }
 
+#productos  .productos_nav{
+   height:729px;
+   width:657px;
+   padding-top:20px;
+  }
+  
+#productos  .productos_nav li {
+    /*margin-left:12px;*/
+    margin-top:30px;
+    margin-bottom:30px;
+    width:	213px;
+    height: 308px;
+    float:left;
+    
+  }
+#productos  .producto{
+	background: url("../img/sprite.png") no-repeat 0px -126px;
+	width:	213px;
+	height: 307px;
+	display: block;
+	text-align:center;
+  }
+#productos  .inicio{
+	background:none;
+	width:	213px;
+	height: 307px;
+	display: block;
+	text-align:center;
+  }
 
+  
+#productos  .productos_nav a {
+    
+    width:	191px;
+    height: 151px;
+    
+  }
+#productos .separador_horizontal {
+  background: url("../img/pixel_separador.png") repeat-x;
+  height:1px;
+  width:657px;
+  position:absolute;
+}
+
+#productos .top {
+  margin-top:20px;
+}
+
+#productos .middle {
+  margin-top:388px;
+}
+
+#productos .bottom {
+  margin-top:753px;
+}   
+
+#productos  .producto_titulo {
+    margin-bottom: 20px;
+    margin-top: 26px;
+    font-size:17px;
+}
+
+#productos  .producto_pagina {
+    font-size:12px;
+}
+
+#productos  .precio {
+	margin-top: 26px;
+    font-size:25px;
+}
+
+#productos  .descripcion {
+   font-size:12px;
+}
+
+#productos  .producto_pagina span {
+    float:right;
+}
 
 
 /**	 End Content **/ 

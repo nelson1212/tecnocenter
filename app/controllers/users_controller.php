@@ -3,62 +3,25 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
   	private $directorioFoto="";
-  
-    function beforeFilter()
-	{
+	function beforeFilter(){
 		parent::beforeFilter();
 		$this->Auth->allow('add','view','index','delete','edit',
 							'admin_userReports','admin_selectReport',
 							'register', 'admin_edit',
 							'rememberPassword');
 	}
-	
-	function init()
-	{
-		$aro =& $this->Acl->Aro;
-		$aco =& $this->Acl->Aco;
-
-		$firstAroId=$aro->id;
-		$roles=array("Super Administrator","Administrator", "Vendedor", "Web", "Clientes");
-		foreach($roles as $theRole){
-			$role["Role"]["name"]=$theRole;
-			$this->User->Role->create();
-			if($this->User->Role->save($role)){
-				$newAro=array(
-					"alias"=>$role["Role"]["name"],
-					"model"=>"Role",
-					"foreign_key"=>$this->User->Role->id,
-					);
-				$aro->create();
-				$aro->save($newAro);
-			}
-			$this->User->Role->id=0;
+ 	 function menu(){
+		if(!$this->Acl->check(array('model' => 'User', 'foreign_key' => $this->Session->read("Auth.User.id")), 'menu')){
+			$this->Session->setFlash(__($this->Auth->authError, true));
+			$this->redirect($this->referer());
 		}
-		
-		$firsAcos=array(
-		/*	0=>array(
-				"alias"=>"Mensajes"
-			)		*/	
-		);
-		foreach($firsAcos as $newAro){
-			$aco->create();
-			$aco->save($newAro);
+	}
+	function admin_menu(){
+		if(!$this->Acl->check(array('model' => 'User', 'foreign_key' => $this->Session->read("Auth.User.id")), 'admin_menu')){
+			$this->Session->setFlash(__($this->Auth->authError, true));
+			$this->redirect($this->referer());
 		}
-		
 	}
-  
-  
-	function reset()
-	{
-		$this->User->query("TRUNCATE TABLE `fields_forms_users`");
-		$this->User->query("TRUNCATE TABLE `forms_users`");
-		$this->User->query("TRUNCATE TABLE `users`");
-		$this->User->query("TRUNCATE TABLE `aros`");
-		$this->User->query("TRUNCATE TABLE `acos`");
-		$aro =& $this->Acl->Aro;
-		$this->init();
-	}
-  
 	function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
@@ -255,13 +218,21 @@ class UsersController extends AppController {
 	}
 	
 	//LOGIN USER
-	function login()
-	{
+	function login(){
+		$this->set("login",true);
 		
+	}
+	function admin_login(){
+		$this->set("login",true);
 	}
 	
 	//LOGOUT USER
 	function logout() 
+	{
+	   $this->redirect($this->Auth->logout());    
+	}
+	
+	function admin_logout() 
 	{
 	   $this->redirect($this->Auth->logout());    
 	}
@@ -364,6 +335,58 @@ class UsersController extends AppController {
 				return;
 			}
 		}	
+	}
+
+	
+	function init()
+	{
+		$aro =& $this->Acl->Aro;
+		$aco =& $this->Acl->Aco;
+
+		$firstAroId=$aro->id;
+		$roles=array("Super_Administrador","Administrador", "Vendedor", "Web", "Clientes");
+		foreach($roles as $theRole){
+			$role["Role"]["name"]=$theRole;
+			$this->User->Role->create();
+			if($this->User->Role->save($role)){
+				$newAro=array(
+					"alias"=>$role["Role"]["name"],
+					"model"=>"Role",
+					"foreign_key"=>$this->User->Role->id,
+					);
+				$aro->create();
+				$aro->save($newAro);
+			}
+			$this->User->Role->id=0;
+		}
+		
+		$firsAcos=array(
+			0=>array(
+				"alias"=>"admin_menu"				
+			),
+			1=>array(
+				"alias"=>"menu"	
+			)	
+		);
+		foreach($firsAcos as $newAro){
+			$aco->create();
+			$aco->save($newAro);
+		}
+		$this->Acl->allow('Super_Administrador', 'admin_menu');
+		$this->Acl->allow('Administrador', 'admin_menu');
+		$this->Acl->allow('Vendedor', 'admin_menu');
+		$this->Acl->allow('Web', 'menu');
+		$this->Acl->allow('Clientes', 'menu');
+		$this->User->query("INSERT INTO `users` (`id`, `role_id`, `tipo_identificacion`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `email`, `direccion`, `pais`, `departamento`, `ciudad`, `telefono`, `telefono_adicional`, `celular`, `celular_adicional`, `foto`, `username`, `password`) VALUES(1, 1, 'C. ', 'Super', '', 'Administrador', '', 'superadministrador@tecnocenter.com', '', '', '', '', 5555555, 55555555, 2147483647, 2147483647, '', 'superadmistrador', 'cdc097124bc6e6637abefa0f584fe8720b729bbe'),(2, 2, 'C. ', 'administrador', '', 'Administrador', '', 'administrador@tecnocenter.com', '', '', '', '', 5555555, 55555555, 2147483647, 2147483647, '', 'administrador', '681e76a4bb4926746ed071cdae432aa2702d3af4'),(3, 3, 'C. ', 'vendedor', '', 'vendedor', '', 'vendedor@tecnocenter.com', '', '', '', '', 5555555, 55555555, 2147483647, 2147483647, '', 'vendedor', 'e7f8fdafa72a45dea5369fcf90dc1eac45c7fb58');");		
+	}
+	function reset(){
+		$this->User->query("TRUNCATE TABLE `users`");
+		$this->User->query("TRUNCATE TABLE `roles`");
+		$this->User->query("TRUNCATE TABLE `aros_acos`");
+		$this->User->query("TRUNCATE TABLE `aros`");
+		$this->User->query("TRUNCATE TABLE `acos`");
+		$this->init();
+		$this->redirect($this->referer());
 	}
 }
 ?>

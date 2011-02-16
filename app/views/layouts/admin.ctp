@@ -22,25 +22,45 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('Tecno Center:'); ?>
+		<?php __("CMS:"); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/themes/base/jquery-ui.css');
-		echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/jquery-ui.min.js');
+
 		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('uploadify');
 		echo $this->Html->script("https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js");
-		echo $this->Html->script("jquery-ui-1.8.9.custom.min.js");
 		echo $this->Html->script("admin.js");
-		echo $this->Html->script("dates.js");
+		echo $this->Html->script("jquery-ui.js");
+		echo $this->Html->script("swfobject.js");
+		echo $this->Html->script("jquery.uploadify.v2.1.4.min.js");
+		echo $this->Html->script("upload.js");
 		echo $scripts_for_layout;
 	?>
 </head>
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link(__('nelson CakePHP: the rapid development php framework', true), 'http://cakephp.org'); ?></h1>
+			<div class="logo">
+				<?php echo $this->Html->link(
+					$this->Html->image('logo_cms.png', array('alt'=> __('CMS: Naru', true), 'border' => '0')),
+					array("controller"=>"users","action"=>"menu"),
+					array('target' => '_blank', 'escape' => false)
+				);
+			?>
+			</div>
+			<?php if(!isset($login)): ?> 
+			<ul class="nav">
+				<li><?php echo $html->link("Productos",array("controller"=>"products","action"=>"index")); ?></li>
+				<li><?php echo $html->link("Usuarios",array("controller"=>"users","action"=>"index")); ?></li>
+				<li><?php echo $html->link("Inventarios",array("controller"=>"eventos","action"=>"index")); ?></li>
+				<li><?php echo $html->link("Ventas",array("controller"=>"pages","action"=>"index")); ?></li>
+				<li><?php echo $html->link("Reportes",array("controller"=>"pages","action"=>"index")); ?></li>
+				<li><?php echo $html->link(__("logout",true),array("controller"=>"users","action"=>"logout"),array("class"=>"logout"))?><li> 
+			</ul>
+			<?php endif;?>
+		<?php //if(!isset($login)) echo $html->link(__("logout",true),array("controller"=>"users","action"=>"logout"),array("class"=>"logout"))?>
 		</div>
 		<div id="content">
 
@@ -50,13 +70,14 @@
 
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
+			<?php /*echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
 					'http://www.cakephp.org/',
 					array('target' => '_blank', 'escape' => false)
-				);
+				);*/
 			?>
 		</div>
+		<?php echo $this->element("developer-utilities");?>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
 </body>
