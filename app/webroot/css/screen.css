@@ -787,8 +787,16 @@ form .submit input[type=submit]:hover {
     width:	213px;
     height: 308px;
     float:left;
+    padding-left:6px;
     
   }
+
+#productos  img {
+	height:181px; 
+	width:190px;
+    
+  }
+  
 #productos  .producto{
 	background: url("../img/sprite.png") no-repeat 0px -126px;
 	width:	213px;
@@ -847,6 +855,8 @@ form .submit input[type=submit]:hover {
 
 #productos  .descripcion {
    font-size:12px;
+   margin-left: 10px;
+   margin-right: 10px;
 }
 
 #productos  .producto_pagina span {

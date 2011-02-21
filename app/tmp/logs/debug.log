@@ -201,4 +201,12 @@
 2011-02-15 21:13:54 Debug: Notice (8): Undefined variable: PAGE_TITLE in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\views\layouts\admin.ctp, line 25]
 2011-02-15 21:36:25 Debug: Notice (8): Undefined variable: tiposIdentificacion in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\views\users\admin_add.ctp, line 9]
 2011-02-15 21:36:30 Debug: Notice (8): Undefined variable: tiposIdentificacion in [C:\Users\Usuario\xampp\htdocs\tecnocenter\app\views\users\admin_add.ctp, line 9]
+<<<<<<< HEAD
 2011-02-21 04:20:41 Debug: Notice (8): Undefined variable: array in [E:\xampp\htdocs\tecnocenter\app\views\products\admin_product_report.ctp, line 6]
+=======
+2011-02-17 12:23:11 Notice: Notice (8): Undefined index:  nit_proveedor in [/home/embalao/embalao.org/tecnocenter/app/views/categories/admin_view.ctp, line 97]
+2011-02-17 12:23:11 Notice: Notice (8): Undefined index:  control_invent in [/home/embalao/embalao.org/tecnocenter/app/views/categories/admin_view.ctp, line 99]
+2011-02-17 13:57:31 Notice: Notice (8): Undefined variable: Html in [/home/embalao/embalao.org/tecnocenter/app/views/products/index.ctp, line 31]
+2011-02-17 17:50:03 Notice: Notice (8): Undefined index:  nit_proveedor in [/home/embalao/embalao.org/tecnocenter/app/views/categories/admin_view.ctp, line 97]
+2011-02-17 17:50:03 Notice: Notice (8): Undefined index:  control_invent in [/home/embalao/embalao.org/tecnocenter/app/views/categories/admin_view.ctp, line 99]
+>>>>>>> f6577364915dc4872631d92809e55836665555f2
