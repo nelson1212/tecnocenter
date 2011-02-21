@@ -192,7 +192,7 @@ class ProductsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-		//Hora inicio 9.10 pm
+
 	function admin_product_report()
 	{
 		if(empty($this->data))
@@ -257,7 +257,8 @@ class ProductsController extends AppController {
 			
 			$reporte = $this->Product->find('all', array('fields'=>$array,
 											'conditions'=>$condiciones));								
-			$this->set(compact('reporte'));
+			
+			$this->set(compact('reporte','array'));
 		}
 	}
 }

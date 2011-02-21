@@ -24,8 +24,8 @@ $(document).ready(function() {
 	'cancelImg': server+'img/cancel.png',
 	'onComplete': function(a,b,c,d){
 		var name=c.name;
-		alert(name);
-		$(".preview").html('<img  src="'+server+'img/'+name+'" />');
+		//alert(name);
+		$(".preview").html('<img  src="'+server+'img/'+name+'" width="600" height="400" />');
 		$("#single-field").val(name);
 		
 	}
