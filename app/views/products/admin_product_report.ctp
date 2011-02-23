@@ -3,19 +3,30 @@
   <fieldset>
     <legend><?php __('Reportes de productos'); ?></legend>
   <?php
+  
   if(isset($reporte))
   	{
-        //debug($reporte);
-
-		echo "<br>";
-		for($i=0; $i<count($reporte); $i++)
-		{
-			foreach($reporte[$i]['Product'] as $indice =>$valor)
+		echo "<table border='1'>";
+			echo "<tr>";
+				foreach($array as $indice=>$valor)
+				{
+					echo "<td>$valor</td>";
+				}
+			
+		
+		
+			for($i=0; $i<count($reporte); $i++)
 			{
-				echo $indice." : ".$valor."<br>";
+				echo "<tr>";
+				foreach($reporte[$i]['Product'] as $indice =>$valor)
+				{
+					echo "<td>".$indice." : ".$valor."</td>";
+				}
+				echo "</tr>";
 			}
-			echo "<br><br>";
-		}
+			
+		echo "</table>";
+		
 		echo $this->Html->link(__('Regresar', true), array('action' => 'admin_product_report'));
 	} 
   else 

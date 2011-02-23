@@ -10,18 +10,23 @@ class UsersController extends AppController {
 							'register', 'admin_edit',
 							'rememberPassword');
 	}
- 	 function menu(){
+ 	 function menu()
+ 	 {
 		if(!$this->Acl->check(array('model' => 'User', 'foreign_key' => $this->Session->read("Auth.User.id")), 'menu')){
 			$this->Session->setFlash(__($this->Auth->authError, true));
 			$this->redirect($this->referer());
 		}
 	}
-	function admin_menu(){
+	 
+	function admin_menu()
+	{
 		if(!$this->Acl->check(array('model' => 'User', 'foreign_key' => $this->Session->read("Auth.User.id")), 'admin_menu')){
 			$this->Session->setFlash(__($this->Auth->authError, true));
 			$this->redirect($this->referer());
 		}
 	}
+	
+	
 	function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
@@ -345,6 +350,7 @@ class UsersController extends AppController {
 
 		$firstAroId=$aro->id;
 		$roles=array("Super_Administrador","Administrador", "Vendedor", "Web", "Clientes");
+		
 		foreach($roles as $theRole){
 			$role["Role"]["name"]=$theRole;
 			$this->User->Role->create();

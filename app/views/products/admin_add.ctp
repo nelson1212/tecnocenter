@@ -13,7 +13,7 @@
 		echo $this->Form->input('promocionar');
 		echo $this->Form->input('destacar');
 		echo $this->Form->input('ficha_producto');
-		echo $this->Form->input('image_producto');
+		echo $this->Form->input('image_producto', array("id"=>"single-field"));
 		echo $this->Form->input('inventario');
 		echo $this->Form->input('stock_minimo');
 		echo $this->Form->input('stock_maximo');
@@ -30,7 +30,19 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 
+
+<div class="images">
+	<h2>Imagen</h2>
+	<div class="preview">
+	</div>
+	<div id="single-upload">	
 </div>
+</div>
+
+
+</div>
+
+
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
