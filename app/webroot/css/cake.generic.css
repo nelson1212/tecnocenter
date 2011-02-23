@@ -599,3 +599,7 @@ fieldset .layer{
 	padding:10px;
 	
 }
+fieldset .layer .inline{
+clear:none;
+float:left;
+}
