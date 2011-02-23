@@ -1,15 +1,5 @@
 <div id="content_wrap">
-	<div id="producto_destacado">
-		<span class="destacado color">Producto Destacado</span>
-		<div class="descripcion_producto">
-			<p>Esto es un producto destacado</p>
-		</div>
-		<div class="compra_producto">
-			<div class="sprite boton_comprar color">
-				<span class="compra">Comprar</span>
-			</div>
-		</div>
-	</div>
+	<?php echo $this->element("slides");?>
 	<div id="buscar_producto">
 		<?php echo $form->create("Search",array("action"=>"search","controller"=>"searchs"));?>
             <fieldset>

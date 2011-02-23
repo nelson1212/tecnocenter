@@ -129,7 +129,6 @@ list-style:none;
 color:white;
 }
 /** containers **/
-div.form,
 div.index,
 div.view {
 	float:right;
@@ -593,4 +592,10 @@ div.code-coverage-results span.result-good {
 	float:left;
 }
 #developer-utilities  a{
+}
+fieldset .layer{
+	float:left;
+	clear:none;
+	padding:10px;
+	
 }

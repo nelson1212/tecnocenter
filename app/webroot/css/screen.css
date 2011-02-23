@@ -1,6 +1,8 @@
 /** General Style Info **/
 body {
 	 font-family: Trebuchet MS, Arial, sans-serif;
+	  background: none repeat scroll 0 0 Silver;
+	  line-height: normal;
 }
 span{
   
@@ -47,7 +49,7 @@ h4 {
 
 
 #content{
-  
+  margin-top:4px;
 }
 
 #pages #content{
@@ -264,7 +266,7 @@ form .submit input[type=submit]:hover {
 .logo_tecnocenter{height:67px;width:247px;background-position:0 -50px;}
 .menu_navegacion_activo{height:32px;width:182px;background-position:-242px -1px;}
 .menu_navegacion_inactivocopia{height:32px;width:182px;background-position:-424px -1px;}
-.punta_tooltip{height:26px;width:25px;background-position:-207px -18px;}
+.punta_tooltip{height:26px;width:25px;background-position:-206px -18px;}
 
 .separador_articulos_uno{height:309px;width:2px;background-position:0 -117px;position:absolute;margin-left:-8px;}
 .separador_articulos_dos{height:309px;width:2px;background-position:0 -117px;position:absolute;margin-left:207px;}
@@ -286,7 +288,7 @@ form .submit input[type=submit]:hover {
 
 /** Content **/
 
-.content_wrap{
+.content_wrap_border{
   background:url("../img/board_cont.png") no-repeat;
   width:991px;
   height:523px;
@@ -294,6 +296,11 @@ form .submit input[type=submit]:hover {
   
 }
 
+.content_wrap{
+  background:white;
+  width:682px;
+  float:left;
+}
 
 
 /** Header **/
@@ -546,6 +553,7 @@ form .submit input[type=submit]:hover {
     font-size:20px;
     margin-top:8px;
     text-align:center;
+    line-height: 17px;
   }
   
    .tooltip{
@@ -660,13 +668,19 @@ form .submit input[type=submit]:hover {
   
 }
 
-#producto_destacado {
+.images{
    width:656px;
    height:360px;
    margin-top:15px;
    margin-left:11px;
    -moz-border-radius: 0.5em;
    -webkit-border-radius: 0.5em;
+   overflow:hidden;
+}
+
+.producto_destacado {
+   width:656px;
+   height:360px;
    background: url("../img/galeria_fondo.png") no-repeat;
    font-family: Verdana;
 }
@@ -678,14 +692,14 @@ form .submit input[type=submit]:hover {
    display:block;
 }
 
-#producto_destacado .compra {
+.producto_destacado .compra {
    padding-top:11px;
    margin-left:11px;
    font-size:23px;
    display:block;
 }
 
-#producto_destacado .descripcion_producto {
+.producto_destacado .descripcion_producto {
    
    width:194px;
    height: 113px;
@@ -695,14 +709,14 @@ form .submit input[type=submit]:hover {
    
 }
 
-#producto_destacado .descripcion_producto p{
+.producto_destacado .descripcion_producto p{
    color:white;
    margin-left:12px;
    padding-top:13px;
    font-size:12px;
 }
 
-#producto_destacado .compra_producto {
+.producto_destacado .compra_producto {
    margin-left:13px;
    margin-top:10px;
 }
@@ -863,5 +877,79 @@ form .submit input[type=submit]:hover {
     float:right;
 }
 
+/**	 End Content **/
 
-/**	 End Content **/ 
+/** Content Product **/
+
+#product_showcase{
+  background: #e1d1be;
+  margin-left:25px;
+  margin-top:28px;
+  width:630px;
+}
+
+.separador_horizontal {
+  background: url("../img/pixel_separador.png") repeat-x;
+  height:1px;
+  width:630px;
+  position:absolute;
+}
+
+#product_showcase .product_photo {
+  background: #333333;
+  height:470px;
+  width:630px;
+  margin-top:10px;
+}
+
+.detail_tittle {
+  background: #BBBBBB;
+  height:20px;
+  line-height:20px;
+  vertical-align:middle;
+  margin-top:20px;
+  margin-bottom:20px;
+  font-weight: bold;
+  text-align: center;
+  display:block;
+}
+
+.detail{
+	height:500px;
+	width:630px;
+	margin-left:25px;
+}
+
+/** End Content Product **/
+
+/** Slide **/
+
+/* tabs (those little circles below slides) */
+.slidetabs {
+	margin-left: 572px;
+    margin-top: -22px;
+    position: absolute;
+}
+
+/* single tab */
+.slidetabs a {
+	width:14px;
+	height:14px;
+	float:left;
+	margin:3px;
+	background:url("../img/navigator.png") 0 0 no-repeat;
+	display:block;
+	font-size:1px;		
+}
+
+/* mouseover state */
+.slidetabs a:hover {
+	background-position:-14px 0;
+}
+
+/* active state (current page state) */
+.slidetabs a.current {
+	background-position:-28px 0;  
+} 	
+
+/** End Slide **/ 

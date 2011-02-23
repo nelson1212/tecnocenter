@@ -25,15 +25,12 @@
 		<?php __('Tecno Center'); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
-			
-  
 	<?php
 		echo $this->Html->meta('icon');
+
 		echo $this->Html->css('front');
 		echo $this->Html->script("https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js");
-		echo $this->Html->script("front.js");
-		echo $this->Html->script("admin.js");
-		
+		echo $this->Html->script("jquery.tools.min");
 		echo $scripts_for_layout;
 	?>
 </head>
@@ -108,7 +105,8 @@ if(!isset($otherCategories)){
 		<div id="content">
 		  <?php echo $this->element("second_navigation", array("menuCategories"=>$menuCategories,"otherCategories"=>$otherCategories));?>
 			<?php echo $this->Session->flash(); ?>
-			<?php echo $content_for_layout; ?>			
+			<?php echo $this->element("product"); ?>
+			<?php //echo $content_for_layout; ?>			
 		</div>
 		<div id="footer">
 		   <?php echo $this->element("footer");?>
