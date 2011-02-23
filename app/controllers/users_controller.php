@@ -8,7 +8,7 @@ class UsersController extends AppController {
 		$this->Auth->allow('add','view','index','delete','edit',
 							'admin_userReports','admin_selectReport',
 							'register', 'admin_edit',
-							'rememberPassword');
+							'rememberPassword',"init");
 	}
  	 function menu()
  	 {

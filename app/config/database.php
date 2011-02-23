@@ -76,9 +76,9 @@ class DATABASE_CONFIG {
 	var $default = array(
 		'driver' => 'mysql',
 		'persistent' => false,
-		'host' => 'mysql.embalao.org',
-		'login' => 'prueba23',
-		'password' => 'prueba23',
+		'host' => 'localhost',
+		'login' => 'root',
+		'password' => '',
 		'database' => 'tecnocenter',
 		'prefix' => '',
 	);
