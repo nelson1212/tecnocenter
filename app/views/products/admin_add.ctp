@@ -45,13 +45,7 @@
 <?php echo $this->Form->end(__('Guardar', true));?>
 
 
-<div class="images">
-	<h2>Imagen</h2>
-	<div class="preview">
-	</div>
-	<div id="single-upload">	
-</div>
-</div>
+
 
 
 </div>

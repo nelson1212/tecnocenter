@@ -1,5 +1,5 @@
 <div class="categories index">
-	<h2><?php __('Categories');?></h2>
+	<h2><?php __('Categoría');?></h2>
 	<table cellpadding="0" cellspacing="0" id="sortable" controller="categories">
 	<tr class='ui-state-disabled'>	
 			<th><?php echo $this->Paginator->sort('id');?></th>
@@ -20,9 +20,9 @@
 		<td><?php echo $category['Category']['nombre']; ?>&nbsp;</td>
 		<td class="order"><?php echo $category['Category']['order']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $category['Category']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $category['Category']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $category['Category']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $category['Category']['id'])); ?>
+		
+			<?php echo $this->Html->link(__('Modificar', true), array('action' => 'edit', $category['Category']['id'])); ?>
+			<?php echo $this->Html->link(__('Borrar', true), array('action' => 'delete', $category['Category']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $category['Category']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -35,17 +35,16 @@
 	?>	</p>
 
 	<div class="paging">
-		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
+		<?php echo $this->Paginator->prev('<< ' . __('anterior', true), array(), null, array('class'=>'disabled'));?>
 	 | 	<?php echo $this->Paginator->numbers();?>
  |
-		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
+		<?php echo $this->Paginator->next(__('siguiente', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Acciones'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Category', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Products', true), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product', true), array('controller' => 'products', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nueva Categoría', true), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Listar Productos', true), array('controller' => 'products', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
