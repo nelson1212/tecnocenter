@@ -42,11 +42,11 @@
 			?>
 			
 			<?php 
-				if($product['Product']['estado_prod']){
+				/*if($product['Product']['estado_prod']){
 					echo $this->Html->link(__('Desactivar', true), array('action' => 'desactivar', $product['Product']['id'])); 
 				}else{
 					echo $this->Html->link(__('Activar', true), array('action' => 'activar', $product['Product']['id'])); 
-				}
+				}*/
 			?>
 			
 			<?php 

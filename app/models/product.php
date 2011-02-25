@@ -83,6 +83,39 @@ class Product extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		
+		'ficha_producto' => array(
+        	'rule' => array('extension', array('doc', 'docx', 'pdf', 'xls', 'xlsx')),  
+        	'allowEmpty' => true, 
+        	'message' => 'Solo se permiten archivos .doc, .docx, .pdf, .xls, .xlsx'
+    	), 
+    	
+	
+		'imagen_listado' => array(
+        	'rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')),  
+        	'allowEmpty' => false, 'required' => true,
+        	'message' => 'Debes ingresar una imagen, solo se permiten imagenes .gif, .jpeg, .png, .jpg'
+    	), 
+    	
+		'imagen_principal' => array(
+        	'rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')),  
+        	'allowEmpty' => false, 'required' => true,
+        	'message' => 'Debes ingresar una imagen, solo se permiten imagenes .gif, .jpeg, .png, .jpg'
+    	), 
+    	
+		'imagen_destacar' => array(
+        	'rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')),  
+        	'allowEmpty' => false, 'required' => true,
+        	'message' => 'Debes ingresar una imagen, solo se permiten imagenes .gif, .jpeg, .png, .jpg'
+    	), 
+    	
+		'imagen_ficha_tecnica' => array(
+        	'rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')),  
+        	'allowEmpty' => true,
+        	'message' => 'Solo se permiten imagenes .gif, .jpeg, .png, .jpg'
+    	), 
+    	
+		 
 		'tiempo_reposicion' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),

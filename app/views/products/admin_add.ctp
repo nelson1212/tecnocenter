@@ -1,5 +1,5 @@
 <div class="products form">
-<?php echo $this->Form->create('Product');?>
+<?php echo $this->Form->create('Product', array('type'=>'file'));?>
 	<fieldset>
  		<legend><?php __('Añadir Producto'); ?></legend>
  		<div class="layer">
@@ -33,11 +33,11 @@
  		</div>
  		<div class="layer">
  		<?php
- 			echo $this->Form->input('ficha_producto');
- 			echo $this->Form->input('imagen_listado', array("id"=>"single-field"));
- 			echo $this->Form->input('imagen_principal', array("id"=>"single-field"));
-			echo $this->Form->input('imagen_destacar', array("id"=>"single-field"));
-			echo $this->Form->input('imagen_ficha_tecnica', array("id"=>"single-field"));
+ 			echo $this->Form->input('ficha_producto', array("type"=>"file", "id"=>"ficha_producto"));
+ 			echo $this->Form->input('imagen_listado', array("type"=>"file", "id"=>"imagen_listado"));
+ 			echo $this->Form->input('imagen_principal', array("type"=>"file", "id"=>"imagen_principal"));
+			echo $this->Form->input('imagen_destacar', array("type"=>"file","id"=>"imagen_destacar"));
+			echo $this->Form->input('imagen_ficha_tecnica', array("type"=>"file","id"=>"imagen_ficha_tecnica"));
 		?>
  		</div>
 

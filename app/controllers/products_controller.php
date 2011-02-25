@@ -144,8 +144,50 @@ class ProductsController extends AppController {
 	}
 
 	function admin_add() {
+		
 		if (!empty($this->data)) {
+			
+			//Imagenes
+			$imgFichaProducto = $this->data['Product']['ficha_producto'];
+			$imgListado = $this->data['Product']['imagen_listado'];
+			$imgPrincipal = $this->data['Product']['imagen_principal'];
+			$imgDestacar = $this->data['Product']['imagen_destacar'];
+			$imgFichaTecnica = $this->data['Product']['imagen_ficha_tecnica'];
+		    
+			//Validamos las imagenes opcionales, sino tienen errores entonces las subimos
+			if($imgFichaProducto['error']==0)
+			{
+				$nombreOriginal=$this->data['Product']['nombre'];
+				$nombreRetornado = $this->uploadPicture($imgFichaProducto, $nombre_foto);
+				$this->data['Product']['ficha_procuto']=$nombreRetornado;
+			}
+			
+			if($imgFichaTecnica['error']==0)
+			{
+				$nombreOriginal=$this->data['Product']['nombre'];
+				$nombreRetornado = $this->uploadPicture($imgFichaProducto, $nombre_foto);
+				$this->data['Product']['ficha_procuto']=$nombreRetornado;
+			}
+			
+			//imagen_listado
+			$nombreOriginal=$this->data['Product']['nombre'];
+			$nombreRetornado = $this->uploadPicture($imgFichaProducto, $nombre_foto);
+			$this->data['Product']['ficha_procuto']=$nombreRetornado;
+			
+			//imagen_principal
+			$nombreOriginal=$this->data['Product']['nombre'];
+			$nombreRetornado = $this->uploadPicture($imgFichaProducto, $nombre_foto);
+			$this->data['Product']['ficha_procuto']=$nombreRetornado;
+			
+			//imagen_destacar
+			$nombreOriginal=$this->data['Product']['nombre'];
+			$nombreRetornado = $this->uploadPicture($imgFichaProducto, $nombre_foto);
+			$this->data['Product']['ficha_procuto']=$nombreRetornado;
+			
+		
+			debug($this->data); exit;
 			$this->Product->create();
+			
 			if ($this->Product->save($this->data)) {
 				$this->Session->setFlash(__('The product has been saved', true));
 				$this->redirect(array('action' => 'index'));
@@ -260,6 +302,42 @@ class ProductsController extends AppController {
 			
 			$this->set(compact('reporte','array'));
 		}
+	}
+
+	//$foto array del archivo
+    //nombre_foto es igual al username ya que sera unico
+	function uploadPicture($foto, $nombre_foto, $ruta)
+	{		
+		//Caracteristicas de la imagen
+		$nombre = $foto['name'];
+		$tipo = $foto['type'];
+		$tamano = $foto['size'];
+		$nombre_foto=md5(sha1($nombre_foto));		
+		
+		//Comprobamos la extensión de la  imagen
+		if(strpos($tipo, "gif")) {
+			$nombre_foto=$nombre_foto.".gif";
+		} else if(strpos($tipo, "jpeg")) {
+		    $nombre_foto=$nombre_foto.".jpg";
+		}else if(strpos($tipo, "png")) {
+			$nombre_foto=$nombre_foto.".png";
+		}
+		
+		//$this->photoName=$nombre_foto;
+		
+		//Directorio donde sera guardada la imagen
+		$directorio = WWW_ROOT."img\\fotos\\".$ruta."\\".$nombre_foto;
+		
+			//Copiamos la imagen al directorio, especificado
+	   		if (copy($foto["tmp_name"], $directorio))
+	   		{
+	   			//$this->directorioFoto=$directorio;
+			   return $nombre_foto;  
+	   		}
+	   		else
+	   		{ 
+			   return 2; 
+	   		}
 	}
 }
 ?>

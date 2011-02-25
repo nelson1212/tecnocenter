@@ -210,3 +210,4 @@
 2011-02-17 17:50:03 Notice: Notice (8): Undefined index:  nit_proveedor in [/home/embalao/embalao.org/tecnocenter/app/views/categories/admin_view.ctp, line 97]
 2011-02-17 17:50:03 Notice: Notice (8): Undefined index:  control_invent in [/home/embalao/embalao.org/tecnocenter/app/views/categories/admin_view.ctp, line 99]
 >>>>>>> f6577364915dc4872631d92809e55836665555f2
+2011-02-25 22:30:23 Debug: Notice (8): Undefined index: estado_prod in [E:\xampp\htdocs\tecnocenter\app\views\products\admin_index.ctp, line 45]
