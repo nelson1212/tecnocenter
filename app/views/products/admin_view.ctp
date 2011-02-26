@@ -56,9 +56,9 @@
 			<?php echo $product['Product']['ficha_producto']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Image Producto'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Imagen Producto'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $product['Product']['image_producto']; ?>
+			<?php echo $product['Product']['imagen_principal']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Inventario'); ?></dt>

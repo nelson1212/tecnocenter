@@ -3,12 +3,17 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
   	private $directorioFoto="";
-	function beforeFilter(){
+	
+	function beforeFilter()
+	{
 		parent::beforeFilter();
 		$this->Auth->allow('add','view','index','delete','edit',
 							'admin_userReports','admin_selectReport',
 							'register', 'admin_edit',
 							'rememberPassword',"init");
+		
+		
+								
 	}
  	 function menu()
  	 {
@@ -307,7 +312,7 @@ class UsersController extends AppController {
 	}
 
     //Recordar email
-	function rememberPassword()
+	function remenberPassword()
 	{
 		if (!empty($this->data)) 
 		{
