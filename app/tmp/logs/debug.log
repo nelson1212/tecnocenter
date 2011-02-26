@@ -211,3 +211,13 @@
 2011-02-17 17:50:03 Notice: Notice (8): Undefined index:  control_invent in [/home/embalao/embalao.org/tecnocenter/app/views/categories/admin_view.ctp, line 99]
 >>>>>>> f6577364915dc4872631d92809e55836665555f2
 2011-02-25 22:30:23 Debug: Notice (8): Undefined index: estado_prod in [E:\xampp\htdocs\tecnocenter\app\views\products\admin_index.ctp, line 45]
+2011-02-26 02:36:23 Debug: Notice (8): Undefined variable: nombreOriginal in [E:\xampp\htdocs\tecnocenter\app\controllers\products_controller.php, line 173]
+2011-02-26 03:00:10 Debug: Notice (8): Undefined property: ProductsController::$Chrysanthemum.jpg in [E:\xampp\htdocs\tecnocenter\app\controllers\products_controller.php, line 167]
+2011-02-26 03:04:19 Debug: Notice (8): Undefined property: ProductsController::$Chrysanthemum.jpg in [E:\xampp\htdocs\tecnocenter\app\controllers\products_controller.php, line 167]
+2011-02-26 03:04:19 Debug: Notice (8): Undefined property: ProductsController::$Tulips.jpg in [E:\xampp\htdocs\tecnocenter\app\controllers\products_controller.php, line 174]
+2011-02-26 03:04:19 Debug: Notice (8): Undefined property: ProductsController::$Desert.jpg in [E:\xampp\htdocs\tecnocenter\app\controllers\products_controller.php, line 182]
+2011-02-26 03:04:19 Debug: Notice (8): Undefined property: ProductsController::$Lighthouse.jpg in [E:\xampp\htdocs\tecnocenter\app\controllers\products_controller.php, line 190]
+2011-02-26 03:04:19 Debug: Notice (8): Undefined property: ProductsController::$Penguins.jpg in [E:\xampp\htdocs\tecnocenter\app\controllers\products_controller.php, line 198]
+2011-02-26 04:27:00 Debug: Notice (8): Undefined index: clasificacion in [E:\xampp\htdocs\tecnocenter\app\views\products\admin_view.ctp, line 41]
+2011-02-26 04:27:00 Debug: Notice (8): Undefined index: image_producto in [E:\xampp\htdocs\tecnocenter\app\views\products\admin_view.ctp, line 61]
+2011-02-26 04:27:00 Debug: Notice (8): Undefined index: estado_prod in [E:\xampp\htdocs\tecnocenter\app\views\products\admin_view.ctp, line 111]

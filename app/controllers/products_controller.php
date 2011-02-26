@@ -145,47 +145,65 @@ class ProductsController extends AppController {
 
 	function admin_add() {
 		
-		if (!empty($this->data)) {
-			
+		if (!empty($this->data)) 
+		{
 			//Imagenes
-			$imgFichaProducto = $this->data['Product']['ficha_producto'];
+			//debug($this->data['Product']['ficha_producto']); exit;
+			$fichaProducto = $this->data['Product']['ficha_producto'];
 			$imgListado = $this->data['Product']['imagen_listado'];
 			$imgPrincipal = $this->data['Product']['imagen_principal'];
 			$imgDestacar = $this->data['Product']['imagen_destacar'];
 			$imgFichaTecnica = $this->data['Product']['imagen_ficha_tecnica'];
 		    
+			//Por defecto vacios
+			$this->data['Product']['ficha_producto']="";
+			$this->data['Product']['imagen_ficha_tecnica']="";
+			$this->data['Product']['imagen_listado']="";
+			$this->data['Product']['imagen_principal']="";
+			$this->data['Product']['imagen_destacar']="";
+			
 			//Validamos las imagenes opcionales, sino tienen errores entonces las subimos
-			if($imgFichaProducto['error']==0)
+			if($fichaProducto['error']==0)
 			{
-				$nombreOriginal=$this->data['Product']['nombre'];
-				$nombreRetornado = $this->uploadPicture($imgFichaProducto, $nombre_foto);
-				$this->data['Product']['ficha_procuto']=$nombreRetornado;
+				$nombreOriginal=$fichaProducto['name'];
+				$nombreRetornado = $this->uploadPicture($fichaProducto, $nombreOriginal);
+				$this->data['Product']['ficha_producto']=$nombreRetornado;
 			}
 			
 			if($imgFichaTecnica['error']==0)
 			{
-				$nombreOriginal=$this->data['Product']['nombre'];
-				$nombreRetornado = $this->uploadPicture($imgFichaProducto, $nombre_foto);
-				$this->data['Product']['ficha_procuto']=$nombreRetornado;
+				$nombreOriginal=$imgFichaTecnica['name'];
+				$nombreRetornado = $this->uploadPicture($imgFichaTecnica, $nombreOriginal);
+				$this->data['Product']['imagen_ficha_tecnica']=$nombreRetornado;
 			}
 			
 			//imagen_listado
-			$nombreOriginal=$this->data['Product']['nombre'];
-			$nombreRetornado = $this->uploadPicture($imgFichaProducto, $nombre_foto);
-			$this->data['Product']['ficha_procuto']=$nombreRetornado;
+			if($imgListado['error']==0)
+			{
+				$nombreOriginal=$imgListado['name'];
+				$nombreRetornado = $this->uploadPicture($imgListado, $nombreOriginal);
+				$this->data['Product']['imagen_listado']=$nombreRetornado;
+			}
 			
 			//imagen_principal
-			$nombreOriginal=$this->data['Product']['nombre'];
-			$nombreRetornado = $this->uploadPicture($imgFichaProducto, $nombre_foto);
-			$this->data['Product']['ficha_procuto']=$nombreRetornado;
+			if($imgPrincipal['error']==0)
+			{
+				$nombreOriginal=$imgPrincipal['name'];
+				$nombreRetornado = $this->uploadPicture($imgPrincipal, $nombreOriginal);
+				$this->data['Product']['imagen_principal']=$nombreRetornado;
+			}
 			
 			//imagen_destacar
-			$nombreOriginal=$this->data['Product']['nombre'];
-			$nombreRetornado = $this->uploadPicture($imgFichaProducto, $nombre_foto);
-			$this->data['Product']['ficha_procuto']=$nombreRetornado;
+			if($imgDestacar['error']==0)
+			{
+				$nombreOriginal=$imgDestacar['name'];
+				$nombreRetornado = $this->uploadPicture($imgDestacar, $nombreOriginal);
+				$this->data['Product']['imagen_destacar']=$nombreRetornado;
+			}
+			
 			
 		
-			debug($this->data); exit;
+			//debug($this->data); exit;
 			$this->Product->create();
 			
 			if ($this->Product->save($this->data)) {
@@ -306,7 +324,7 @@ class ProductsController extends AppController {
 
 	//$foto array del archivo
     //nombre_foto es igual al username ya que sera unico
-	function uploadPicture($foto, $nombre_foto, $ruta)
+	function uploadPicture($foto, $nombre_foto)
 	{		
 		//Caracteristicas de la imagen
 		$nombre = $foto['name'];
@@ -323,10 +341,8 @@ class ProductsController extends AppController {
 			$nombre_foto=$nombre_foto.".png";
 		}
 		
-		//$this->photoName=$nombre_foto;
-		
 		//Directorio donde sera guardada la imagen
-		$directorio = WWW_ROOT."img\\fotos\\".$ruta."\\".$nombre_foto;
+		$directorio = WWW_ROOT."img\\fotos\\".$nombre_foto;
 		
 			//Copiamos la imagen al directorio, especificado
 	   		if (copy($foto["tmp_name"], $directorio))

@@ -26,7 +26,7 @@ class Product extends AppModel {
 		'nombre' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Debes ingresar el nombre',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -36,7 +36,7 @@ class Product extends AppModel {
 		'codigo' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Debes ingresar un código',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -46,7 +46,7 @@ class Product extends AppModel {
 		'costo' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Debes ingresar un costo',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -56,7 +56,7 @@ class Product extends AppModel {
 		'valor_venta' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Debes ingresar un valor de venta',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -76,7 +76,7 @@ class Product extends AppModel {
 		'rotacion' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Debes ingresar un tiempo de rotación',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -84,11 +84,13 @@ class Product extends AppModel {
 			),
 		),
 		
+		/*
 		'ficha_producto' => array(
-        	'rule' => array('extension', array('doc', 'docx', 'pdf', 'xls', 'xlsx')),  
+        	//'rule' => array('extension', array('doc', 'docx', 'pdf', 'xls', 'xlsx')),  
+        	'rule' => array('extension', array('pdf')), 
         	'allowEmpty' => true, 
         	'message' => 'Solo se permiten archivos .doc, .docx, .pdf, .xls, .xlsx'
-    	), 
+    	),  */
     	
 	
 		'imagen_listado' => array(
@@ -115,11 +117,12 @@ class Product extends AppModel {
         	'message' => 'Solo se permiten imagenes .gif, .jpeg, .png, .jpg'
     	), 
     	
+		
 		 
 		'tiempo_reposicion' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Debes llenar este campo',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
